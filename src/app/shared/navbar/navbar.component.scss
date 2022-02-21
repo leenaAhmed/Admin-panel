@@ -1,0 +1,28 @@
+.navbar.navbar-absolute {
+  position: absolute;
+  width: 100%;
+  padding-top: 10px;
+  z-index: 1029;
+}
+
+.navbar .navbar-brand {
+  position: relative;
+  color: inherit;
+  height: 50px;
+  font-size: 1.125rem;
+  line-height: 30px;
+  padding: 0.625rem 0;
+  font-weight: 300;
+  margin-left: 1rem;
+}
+.navbar .collapse .navbar-nav .nav-item .nav-link {
+  position: relative;
+  padding: 10px 15px;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  line-height: 20px;
+  margin-left: 5px;
+  color: inherit;
+}

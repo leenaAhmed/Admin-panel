@@ -1,0 +1,38 @@
+<div class="sidebar" data-background-color="white" data-color="azure" data-image="../../../assets/sidebar-1.jpg">
+  <div>
+    <div class="logo">
+      <a href="" class="simple-text ">
+
+        Wuzzuf
+      </a>
+    </div>
+    <div class="sidebar-wrapper">
+
+      <ul class="nav">
+        <li class="dropdown active ">
+          <a class="d-flex  align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>lina Ahmed</strong>
+          </a>
+          <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+          </ul>
+        </li>
+
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="nav-item">
+          <a class="nav-link" [routerLink]="[menuItem.path]">
+            <i class="material-icons">{{menuItem.icon}}</i>
+            <p>{{menuItem.title}}</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="sidebar-background"></div>
+
+
+</div>
