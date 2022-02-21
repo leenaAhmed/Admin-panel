@@ -24,10 +24,13 @@ export const ROUTES: any[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[] = [];
+   isOpen: boolean = false;
   constructor() {}
 
   ngOnInit(): void {
     this.menuItems = ROUTES.filter((menuItem) => menuItem);
   }
-   
+    sidebarToggle(){
+     this.isOpen=!this.isOpen
+  }
 }
