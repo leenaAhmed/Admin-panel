@@ -1,5 +1,5 @@
-<div class="sidebar" data-background-color="white" data-color="azure" data-image="../../../assets/sidebar-1.jpg">
-  <div>
+<div class="sidebar  sidebar-background " id="navigation">
+  <div class="mainbackground">
     <div class="logo">
       <a href="" class="simple-text ">
 
@@ -7,21 +7,27 @@
       </a>
     </div>
     <div class="sidebar-wrapper">
-
+      <div class="user">
+        <div class="photo"><img src="https://github.com/mdo.png"></div>
+        <div class="user-info">
+          <a data-toggle="collapse" class="collapsed" (click)="sidebarToggle()" aria-expanded="false">
+            <span> leena Ahmed <b class="caret">
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </b></span></a>
+          <div id="collapseExample" class="collapse" [class.show]="isOpen">
+            <ul class="nav">
+              <li class="nav-item"><a class="nav-link"><span class="sidebar-mini">MP</span><span
+                    class="sidebar-normal">My Profile</span></a></li>
+              <li class="nav-item"><a class="nav-link"><span class="sidebar-mini">EP</span><span
+                    class="sidebar-normal">Edit Profile</span></a></li>
+              <li class="nav-item"><a class="nav-link"><span class="sidebar-mini">S</span><span
+                    class="sidebar-normal">Settings</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <ul class="nav">
-        <li class="dropdown active ">
-          <a class="d-flex  align-items-center link-dark text-decoration-none 
-          dropdown-toggle" id="dropdownUser2" (click)="sidebarToggle()"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>lina Ahmed</strong>
-          </a>
-          <ul class="dropdown-menu text-small shadow sidebardropdown"
-          [class.show]="isOpen" aria-labelledby="dropdownUser2">
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-          </ul>
-        </li>
+
 
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="nav-item">
           <a class="nav-link" [routerLink]="[menuItem.path]">
@@ -34,7 +40,7 @@
 
   </div>
 
-  <div class="sidebar-background"></div>
+  <!-- <div class="sidebar-background"></div> -->
 
 
 </div>

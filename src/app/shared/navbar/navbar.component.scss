@@ -1,10 +1,15 @@
 .navbar.navbar-absolute {
   position: absolute;
-  width: 100%;
-  padding-top: 10px;
-  z-index: 1029;
 }
-
+.navbar .navbar-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+@media screen and (max-width: 991px) {
+  .navbar.navbar-absolute {
+    position: relative;
+  }
+}
 .navbar .navbar-brand {
   position: relative;
   color: inherit;

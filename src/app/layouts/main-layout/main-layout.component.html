@@ -1,5 +1,11 @@
-<app-sidebar> </app-sidebar>
-<div class="main-panel">
-    <app-navbar></app-navbar>
+<div class="wrapper">
+    <div>
+        <app-sidebar> </app-sidebar>
+    </div>
+    <div class="main-panel">
+        <app-navbar></app-navbar>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>
-<router-outlet></router-outlet>

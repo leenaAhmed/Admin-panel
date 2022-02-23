@@ -1,7 +1,66 @@
 .main-panel {
-    position: relative;
-    float: right;
-    width: calc(100% - 260px);
-    transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
+  position: relative;
+  float: right;
+  width: calc(100% - 260px);
+  transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
+}
+@media screen and (max-width: 991px) {
+  .nav-open .sidebar {
+    transform: translate3d(0, 0, 0);
   }
-  
+}
+
+.nav-open {
+  .main-panel {
+    right: 0;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .sidebar {
+    transform: translate3d(0, 0, 0);
+  }
+
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .menu-on-right {
+    .main-panel {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .navbar-collapse,
+    .sidebar {
+      transform: transform-translate-x(0);
+    }
+
+    .navbar-translate {
+      transform: transform-translate-x(-300px);
+    }
+
+    #bodyClick {
+      right: 260px;
+      left: auto;
+    }
+  }
+}
+.wrapper {
+  position: relative;
+  top: 0;
+  height: 100vh;
+}
+@media screen and (max-width: 991px) {
+  .nav-open body {
+    position: relative;
+    overflow-x: hidden;
+  }
+}
+.sidebar .sidebar-wrapper {
+  overflow-x: hidden;
+  height: 100vh;
+
+  .active-pro {
+    bottom: 22px;
+  }
+}
