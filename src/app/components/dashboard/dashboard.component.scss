@@ -1,0 +1,57 @@
+.Header
+{
+    font-size: 30px;
+}
+.small-box {
+    border-radius: 1.5%;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: block;
+    position: relative;
+    -webkit-border-radius: 1.5%;
+    -moz-border-radius: 1.5%;
+    -ms-border-radius: 1.5%;
+    -o-border-radius: 1.5%;
+}
+  
+  .small-box > .small-box-footer {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    height: 40px;
+  }
+  
+  .small-box > .small-box-footer:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+    color: #fff;
+  }
+  
+  .small-box h3 {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .small-box > .inner p {
+    font-size: 19px;
+    font-weight: 500;
+  }
+   
+  .small-box .icon {
+    color: rgba(0, 0, 0, 0.15);
+  }
+  
+  .small-box .icon >fa-icon {
+    font-size: 60px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    transition: transform 0.3s linear;
+}
+  .small-box .icon >fa-icon p {
+      font-size: 17px;
+  }
+ 
+  .small-box:hover .icon > fa-icon{
+    transform: scale(1.1);
+  }
