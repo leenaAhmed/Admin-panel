@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IuserCompany } from 'src/app/model/iuser-company';
-import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { CompanyService } from 'src/app/Services/companyUser/company.service';
+import {  faSearch} from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-company-contacts',
   templateUrl: './company-contacts.component.html',
@@ -14,6 +15,7 @@ export class CompanyContactsComponent implements OnInit {
   tableSizes: any = [3, 6, 9, 12];
   searchText: string = '';
   message = '';
+  faSearch = faSearch ;
 
   constructor(private companyService: CompanyService) {}
 

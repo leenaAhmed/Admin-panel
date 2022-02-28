@@ -1,7 +1,7 @@
-import { UsersService } from './../../services/users.service';
+import { UsersService } from './../../Services/users.service';
 import { IUser } from './../../Models/iuser';
 import { Component, OnInit } from '@angular/core';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash , faSearch} from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,12 +11,16 @@ import { Subscription } from 'rxjs';
 })
 export class UserTableComponent implements OnInit {
   faTrash = faTrash;
+  faSearch = faSearch;
   UsersList: IUser[] = [];
   SubScriptionArray: Subscription[] = [];
   page: number = 1;
   count: number = 0;
   tableSize: number = 3;
   searchText: string = '';
+  DeleteMessage :string = '' ;
+  DeleteUserId : string = '' ;
+  MessageShow : boolean = false ;
   constructor(private UserService: UsersService) {}
 
   ngOnInit(): void {
@@ -42,5 +46,21 @@ export class UserTableComponent implements OnInit {
     );
     this.count = this.UsersList.length;
     this.SubScriptionArray.push(UsersObserver);
+  }
+
+  Deleteuser(id: string) {
+    this.UserService
+      .Deleteuser(id)
+      .then(() => {
+        this.DeleteMessage = 'The user delete successfully!';
+        setTimeout(() => {
+          this.MessageShow = true;
+        }, 1000);
+        setTimeout(() => {
+          this.MessageShow = false;
+        }, 5000);
+      })
+      .catch((err) => console.log(err));
+    console.log(id);
   }
 }

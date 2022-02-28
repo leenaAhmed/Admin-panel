@@ -13,4 +13,7 @@ export class UsersService {
   GetAllUsers() {
     return this.FireBase.collection("users").snapshotChanges();
   }
+  Deleteuser(id: string) {
+    return this.FireBase.collection('users').doc(id).delete();
+  }
 }
