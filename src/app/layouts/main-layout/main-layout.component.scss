@@ -50,6 +50,10 @@
   top: 0;
   height: 100vh;
 }
+.content {
+  padding: 0 1.5rem;
+  margin-top: 130px;
+}
 @media screen and (max-width: 991px) {
   .nav-open body {
     position: relative;

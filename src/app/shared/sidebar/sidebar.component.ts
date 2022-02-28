@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
- 
+
 export const ROUTES: any[] = [
   { path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
-  { path: '/admin', title: 'Admin', icon: 'person', class: '' },
+  { path: '/admin', title: 'User Company', icon: 'person', class: '' },
   {
     path: '/table-list',
     title: 'Table List',
@@ -15,7 +15,6 @@ export const ROUTES: any[] = [
     icon: 'library_books',
     class: '',
   },
-     
 ];
 @Component({
   selector: 'app-sidebar',
@@ -24,13 +23,13 @@ export const ROUTES: any[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[] = [];
-   isOpen: boolean = false;
+  isOpen: boolean = false;
   constructor() {}
 
   ngOnInit(): void {
     this.menuItems = ROUTES.filter((menuItem) => menuItem);
   }
-    sidebarToggle(){
-     this.isOpen=!this.isOpen
+  sidebarToggle() {
+    this.isOpen = !this.isOpen;
   }
 }

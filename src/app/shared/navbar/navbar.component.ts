@@ -8,6 +8,7 @@ import {
 import { Location } from '@angular/common';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Router } from '@angular/router';
+import { CompanyService } from 'src/app/services/companyUser/company.service';
 
 @Component({
   selector: 'app-navbar',
@@ -21,12 +22,15 @@ export class NavbarComponent implements OnInit {
   private sidebarVisible: boolean;
   isOpen: boolean = false;
   isCollapsed: boolean = false;
+  searchText!: string;
+
   @ViewChild('app-navbar', { static: false }) button: any;
 
   constructor(
     private location: Location,
     private element: ElementRef,
-    private router: Router
+    private router: Router,
+    private companyService: CompanyService
   ) {
     this.nativeElement = element.nativeElement;
     this.sidebarVisible = false;
@@ -101,5 +105,10 @@ export class NavbarComponent implements OnInit {
   }
   collapse() {
     this.isCollapsed = !this.isCollapsed;
+  }
+  search(event: any) {
+    this.searchText = (event.target as HTMLInputElement).value;
+    console.log(this.searchText);
+    this.companyService.search.next(this.searchText);
   }
 }

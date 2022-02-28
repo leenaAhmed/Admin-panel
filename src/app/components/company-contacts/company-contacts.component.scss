@@ -1,0 +1,27 @@
+.img-circle {
+  border-radius: 50%;
+}
+
+.fa-li {
+  left: -3em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+}
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.card-header {
+  background-color: transparent;
+  padding: 0.75rem 1.25rem;
+}
+.text-right {
+  text-align: right !important;
+}
