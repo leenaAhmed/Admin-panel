@@ -16,6 +16,7 @@ export class UserTableComponent implements OnInit {
   page: number = 1;
   count: number = 0;
   tableSize: number = 3;
+  searchText: string = '';
   constructor(private UserService: UsersService) {}
 
   ngOnInit(): void {

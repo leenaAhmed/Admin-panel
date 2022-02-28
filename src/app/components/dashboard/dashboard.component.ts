@@ -9,6 +9,8 @@ import {
   faArrowAltCircleRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
+import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { IuserCompany } from 'src/app/model/iuser-company';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,9 +25,13 @@ export class DashboardComponent implements OnInit {
   faPaperclip = faPaperclip;
   TotalUsers: number = 0;
   UsersList: IUser[] = [];
+  companyList: IuserCompany[] = [];
   SubScriptionArray: Subscription[] = [];
 
-  constructor(private UserService: UsersService) {}
+  constructor(
+    private UserService: UsersService,
+    private companyService: CompanyService
+  ) {}
 
   ngOnInit(): void {
     this.GetTotalUsers();

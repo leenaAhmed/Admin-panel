@@ -1,19 +1,19 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
   Router,
   RouterStateSnapshot,
-  UrlTree
-} from "@angular/router";
-import { Observable } from "rxjs";
-import { AdminAuthService } from "../Services/admin-auth.service";
+  UrlTree,
+} from '@angular/router';
+import { Observable } from 'rxjs';
+import { AdminAuthService } from '../services/admin-auth.service';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class AdminIsLoginGuard implements CanActivate {
-  AdminIsLogin : boolean = false;
+  AdminIsLogin: boolean = false;
   constructor(private AdminAuth: AdminAuthService, private Route: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -23,19 +23,17 @@ export class AdminIsLoginGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-
-    this.AdminAuth.AdminIsLogin.subscribe(user => 
-    {
-      (user) ? this.AdminIsLogin = true : this.AdminIsLogin = false ; 
+    this.AdminAuth.AdminIsLogin.subscribe((user) => {
+      user ? (this.AdminIsLogin = true) : (this.AdminIsLogin = false);
     });
     if (this.AdminIsLogin) {
       return true;
     } else {
-      this.Route.navigate(["/"]);
+      this.Route.navigate(['/']);
       return false;
     }
   }
 }
 function ngOnInit() {
-  throw new Error("Function not implemented.");
+  throw new Error('Function not implemented.');
 }

@@ -1,7 +1,7 @@
 <section class="content mt-5">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-12 col-12 Header mb-4"> 
+      <div class="col-lg-12 col-12 Header mb-4">
         Dashboard
       </div>
       <div class="col-lg-3 col-6">
@@ -14,9 +14,10 @@
           <div class="icon">
             <fa-icon [icon]="faUser" class="mt-2 me-2 "></fa-icon>
           </div>
-          <a [routerLink]="['/UsersTable']" class="small-box-footer" >
-           <p class="m-1 p-2">More info <fa-icon [icon]="faArrowAltCircleRight"></fa-icon></p>  
-            
+          <a [routerLink]="['/Home/usertable']" class="small-box-footer">
+            <p class="m-1 p-2">More info <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+            </p>
+
           </a>
         </div>
       </div>
@@ -27,11 +28,12 @@
 
             <p>Companies</p>
           </div>
-          <div class="icon" >
+          <div class="icon">
             <fa-icon [icon]="faBuilding" class="mt-2 me-2"></fa-icon>
           </div>
-          <a href="#" class="small-box-footer" >
-            <p class="m-1 p-2">More info <fa-icon [icon]="faArrowAltCircleRight"></fa-icon></p> 
+          <a [routerLink]="['/Home/admin']" class="small-box-footer">
+            <p class="m-1 p-2">More info <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+            </p>
           </a>
         </div>
       </div>
@@ -46,7 +48,8 @@
             <fa-icon [icon]="faBriefcase" class="mt-2 me-2"></fa-icon>
           </div>
           <a href="#" class="small-box-footer">
-            <p class="m-1 p-2">More info <fa-icon [icon]="faArrowAltCircleRight"></fa-icon></p> 
+            <p class="m-1 p-2">More info <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+            </p>
           </a>
         </div>
       </div>
@@ -61,7 +64,8 @@
             <fa-icon [icon]="faPaperclip" class="mt-2 me-2"></fa-icon>
           </div>
           <a href="#" class="small-box-footer">
-            <p class="m-1 p-2">More info <fa-icon [icon]="faArrowAltCircleRight"></fa-icon></p> 
+            <p class="m-1 p-2">More info <fa-icon [icon]="faArrowAltCircleRight"></fa-icon>
+            </p>
           </a>
         </div>
       </div>

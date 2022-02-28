@@ -4,13 +4,15 @@ import { CompanyContactsComponent } from './components/company-contacts/company-
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
+import { AdminIsLoginGuard } from './Guards/admin-is-login.guard';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-
+// canActivate: [AdminIsLoginGuard],
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LogInComponent },
   {
     path: 'Home',
     component: MainLayoutComponent,
+
     children: [
       { path: 'admin', component: CompanyContactsComponent },
       { path: 'dashboard', component: DashboardComponent },
