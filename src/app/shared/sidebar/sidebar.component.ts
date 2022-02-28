@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 export const ROUTES: any[] = [
-  { path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
-  { path: '/admin', title: 'User Company', icon: 'person', class: '' },
+  { path: 'dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
+  { path: 'admin', title: 'User Company', icon: 'person', class: '' },
   {
-    path: '/table-list',
-    title: 'Table List',
+    path: 'usertable',
+    title: 'User table',
     icon: 'content_paste',
     class: '',
   },
   {
-    path: '/company',
+    path: 'company',
     title: 'company',
     icon: 'library_books',
     class: '',

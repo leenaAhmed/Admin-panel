@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompanyContactsComponent } from './components/company-contacts/company-contacts.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { UserTableComponent } from './components/user-table/user-table.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', component: LogInComponent },
   {
-    path: '',
+    path: 'Home',
     component: MainLayoutComponent,
     children: [
-      { path: '', redirectTo: '/', pathMatch: 'full' },
       { path: 'admin', component: CompanyContactsComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'usertable', component: UserTableComponent },
     ],
   },
 ];

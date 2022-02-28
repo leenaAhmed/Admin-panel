@@ -17,8 +17,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  *ngFor="
+                <tr *ngFor="
                     let user of UsersList
                       | paginate
                         : {
@@ -27,64 +26,36 @@
                             totalItems: count
                           };
                     let i = index
-                  "
-                >
+                  ">
                   <td>{{i+1 }}</td>
                   <td>{{ user?.name}}</td>
                   <td>{{ user.email}}</td>
                   <td>
-                    <a
-                      class="btn btn-danger btn-sm"
-                      data-bs-toggle="modal"
-                      data-bs-target="#DeleteProduct"
-                      aria-label="Close"
-                    >
+                    <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#DeleteProduct"
+                      aria-label="Close">
                       <!-- (click)="WantToDeleteId = product.id" -->
                       <fa-icon [icon]="faTrash" class="mt-2 me-2"></fa-icon>
                       Delete
                     </a>
 
-                    <div
-                      class="modal fade"
-                      id="DeleteProduct"
-                      data-bs-backdrop="static"
-                      data-bs-keyboard="false"
-                      tabindex="-1"
-                      aria-labelledby="staticBackdropLabel"
-                      aria-hidden="true"
-                    >
+                    <div class="modal fade" id="DeleteProduct" data-bs-backdrop="static" data-bs-keyboard="false"
+                      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h3
-                              class="modal-title text-danger"
-                              id="staticBackdropLabel"
-                            >
+                            <h3 class="modal-title text-danger" id="staticBackdropLabel">
                               Warning
                             </h3>
-                            <button
-                              type="button"
-                              class="btn-close"
-                              data-bs-dismiss="modal"
-                              aria-label="Close"
-                            ></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
                             Are you sure you want to delete this user ?
                           </div>
                           <div class="modal-footer">
-                            <button
-                              type="button"
-                              class="btn btn-success"
-                              data-bs-dismiss="modal"
-                            >
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">
                               No
                             </button>
-                            <button
-                              type="button"
-                              class="btn btn-danger"
-                              data-bs-dismiss="modal"
-                            >
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                               <!-- (click)="DeleteProduct(WantToDeleteId)" -->
                               yes..delete
                             </button>
@@ -97,11 +68,7 @@
               </tbody>
             </table>
             <div class="card-footer bg-white">
-              <pagination-controls
-                previousLabel=""
-                nextLabel=""
-                (pageChange)="page = $event"
-              >
+              <pagination-controls previousLabel="" nextLabel="" (pageChange)="page = $event">
               </pagination-controls>
             </div>
           </div>
