@@ -44,7 +44,7 @@ export class CompanyContactsComponent implements OnInit {
     this.companyService
       .deleteuser(id)
       .then(() => {
-        this.message = 'The tutorial was updated successfully!';
+        this.message = 'The user company  delete successfully!';
       })
       .catch((err) => console.log(err));
     console.log(id);
