@@ -8,10 +8,10 @@
     </div>
     <div class="sidebar-wrapper">
       <div class="user">
-        <div class="photo"><img src="https://github.com/mdo.png"></div>
+        <div class="photo"><img src={{AdminsList[0].imageURL}}></div>
         <div class="user-info">
           <a data-toggle="collapse" class="collapsed" (click)="sidebarToggle()" aria-expanded="false">
-            <span> leena Ahmed <b class="caret">
+            <span> {{AdminsList[0].name}} <b class="caret">
                 <mat-icon>keyboard_arrow_down</mat-icon>
               </b></span></a>
           <div id="collapseExample" class="collapse" [class.show]="isOpen">
