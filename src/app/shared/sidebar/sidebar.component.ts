@@ -26,6 +26,7 @@ export const ROUTES: any[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[] = [];
   isOpen: boolean = false;
+  FormIsOpen: boolean = false ;
   AdminsList:IAdmin[]=[];
   constructor(private AdminServ:AdminService) {}
 
@@ -35,6 +36,10 @@ export class SidebarComponent implements OnInit {
   }
   sidebarToggle() {
     this.isOpen = !this.isOpen;
+  }
+
+  FormToggle() {
+    this.FormIsOpen = !this.FormIsOpen;
   }
 
   GetUsers(): void {

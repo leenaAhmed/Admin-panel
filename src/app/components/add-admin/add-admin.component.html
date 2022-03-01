@@ -1,0 +1,197 @@
+<div class="d-flex justify-content-center ">
+  <div
+    class="alert alert-success alert-dismissible fade show mt-3 col-md-5"
+    role="alert"
+    *ngIf="SuccessAddShow"
+  >
+    <strong>Admin added succefuly </strong>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      (click)="SuccessAddShow = false"
+    ></button>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+  <div
+    class="alert alert-danger alert-dismissible fade show mt-3 col-md-5"
+    role="alert"
+    *ngIf="ErrorShow"
+  >
+    <strong>{{ ErrorMessage }} !</strong> 
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      (click)="ErrorShow = false"
+    ></button>
+  </div>
+</div>
+<div class="d-flex justify-content-center mb-3">
+  <div class="card">
+    <img
+      src="../../../assets/Images/cover-photo-375a7303f2911ef2f488da15f51bf58e.jpg"
+      class="card-img-top"
+      alt="Add Admin Form Image"
+    />
+    <div class="card-body">
+      <form
+        class="row g-3 needs-validation d-flex justify-content-center"
+        [formGroup]="AddAdminForm"
+        (ngSubmit)="SubmitForm()"
+      >
+        <div class="col-md-6 col-lg-6 col-6">
+          <label
+            for="EmailInput"
+            class="form-label d-flex flex-row text-secondary LabelFontSize mt-2"
+            >Email</label
+          >
+          <input
+            type="email"
+            class="form-control mt-3"
+            id="EmailInput"
+            name="email"
+            placeholder="Enter email"
+            [class.is-invalid]="Email?.invalid"
+            [class.is-valid]="Email?.valid"
+            formControlName="email"
+          />
+          <div
+            class="alert alert-danger"
+            [hidden]="Email?.valid || Email?.untouched"
+          >
+            <small *ngIf="Email?.errors?.['required']">
+              Email is required
+            </small>
+            <small *ngIf="Email?.errors?.['pattern'] && Email?.touched">
+              Email must contain @ ,
+              <b>{{Email?.errors?.['pattern'].actualValue}}</b> dosn't match.
+            </small>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-6">
+          <label
+            for="NameInput"
+            class="form-label d-flex flex-row text-secondary LabelFontSize mt-2"
+            >Name</label
+          >
+          <input
+            type="text"
+            class="form-control mt-3"
+            id="NameInput"
+            name="Name"
+            placeholder="Enter name"
+            [class.is-invalid]="Name?.invalid"
+            [class.is-valid]="Name?.valid"
+            formControlName="name"
+          />
+          <div
+            class="alert alert-danger"
+            [hidden]="Name?.valid || Name?.untouched"
+          >
+            <small *ngIf="Name?.errors?.['required']"> Name is required </small>
+            <small *ngIf="Name?.errors?.['pattern']">
+              Name must be 5 letters at least.
+            </small>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-6">
+          <label
+            for="PassInput"
+            class="form-label d-flex flex-row text-secondary LabelFontSize mt-2"
+            >Password</label
+          >
+          <input
+            type="password"
+            class="form-control mt-3"
+            id="PassInput"
+            name="password"
+            placeholder="Enter password"
+            formControlName="password"
+            [class.is-invalid]="Password?.invalid"
+            [class.is-valid]="Password?.valid"
+          />
+          <div
+            class="alert alert-danger"
+            [hidden]="Password?.valid || Password?.untouched"
+          >
+            <small *ngIf="Password?.errors?.['required']">
+              Password is required
+            </small>
+            <small *ngIf="Password?.errors?.['pattern'] ">
+              Enterd password dosn't match.
+            </small>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-6">
+          <label
+            for="ConfirmPasswordInput"
+            class="form-label d-flex flex-row text-secondary LabelFontSize mt-2"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            class="form-control mt-3"
+            id="ConfirmPasswordInput"
+            name="confirmPass"
+            placeholder="Enter confirmed password"
+            [class.is-invalid]="ConfirmPassword?.invalid"
+            [class.is-valid]="ConfirmPassword?.valid"
+            formControlName="confirmPassword"
+          />
+          <div
+            class="alert alert-danger"
+            *ngIf="ConfirmPassword?.errors?.['required'] &&
+            ConfirmPassword?.touched"
+          >
+            Confirm Password is required
+          </div>
+          <div
+            class="alert alert-danger"
+            *ngIf="AddAdminForm?.errors?.['UnmatchedPassword'] && ConfirmPassword?.touched"
+          >
+            Confirm password must match password.
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12 col-12">
+          <label
+            for="ImageInput"
+            class="form-label d-flex flex-row text-secondary LabelFontSize mt-2"
+            >Profile image</label
+          >
+          <input
+            type="file"
+            class="form-control mt-3"
+            id="ImageInput"
+            name="image"
+            placeholder="Enter image"
+            [class.is-invalid]="ImageURL?.invalid"
+            [class.is-valid]="ImageURL?.valid"
+            formControlName="imageURL"
+            #AdminImage
+          />
+          <div
+            class="alert alert-danger"
+            [hidden]="ImageURL?.valid || ImageURL?.untouched"
+          >
+            <small *ngIf="ImageURL?.errors?.['required']">
+              Image is required
+            </small>
+          </div>
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-3">
+          <button
+            class="btn btn-success col-lg-12 mt-3 ButtonFontSize"
+            [disabled]="AddAdminForm.invalid"
+          >
+            Sign in
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

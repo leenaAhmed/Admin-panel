@@ -12,6 +12,11 @@ export class AdminAuthService {
     this.AdminIsLogin = FireAuth.user ;
   }
 
+  SignUp(Email:string , Password:string)
+  {
+    return this.FireAuth.createUserWithEmailAndPassword(Email , Password);
+  }
+
   Login(Email:string , Password:string)
   {
     return this.FireAuth.signInWithEmailAndPassword(Email, Password);

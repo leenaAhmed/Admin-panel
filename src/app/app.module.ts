@@ -16,10 +16,12 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import {AngularFireStorageModule} from '@angular/fire/storage'
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import { FilterPipe } from './pipe/filter.pipe';
+import { AddAdminComponent } from './components/add-admin/add-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { FilterPipe } from './pipe/filter.pipe';
     DashboardComponent,
     LogInComponent,
     UserTableComponent,
+    AddAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { FilterPipe } from './pipe/filter.pipe';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     NgxPaginationModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent],

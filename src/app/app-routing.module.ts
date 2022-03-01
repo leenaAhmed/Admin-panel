@@ -1,3 +1,4 @@
+import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompanyContactsComponent } from './components/company-contacts/company-contacts.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
       { path: 'admin', component: CompanyContactsComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'usertable', component: UserTableComponent },
+      { path: 'addadmin', component: AddAdminComponent }
     ],
   },
 ];

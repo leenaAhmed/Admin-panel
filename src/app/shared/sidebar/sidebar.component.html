@@ -1,46 +1,95 @@
-<div class="sidebar  sidebar-background " id="navigation">
+<div class="sidebar sidebar-background" id="navigation">
   <div class="mainbackground">
     <div class="logo">
-      <a  class="simple-text ">
-
-        Wuzzuf
-      </a>
+      <a class="simple-text"> Wuzzuf </a>
     </div>
     <div class="sidebar-wrapper">
       <div class="user">
-        <div class="photo"><img src={{AdminsList[0].imageURL}}></div>
+        <div class="photo"><img src="{{ AdminsList[2].imageURL }}" /></div>
         <div class="user-info">
-          <a data-toggle="collapse" class="collapsed" (click)="sidebarToggle()" aria-expanded="false">
-            <span> {{AdminsList[0].name}} <b class="caret">
+          <a
+            data-toggle="collapse"
+            class="collapsed"
+            (click)="sidebarToggle()"
+            aria-expanded="false"
+          >
+            <span>
+              {{ AdminsList[2].name }}
+              <b class="caret">
                 <mat-icon>keyboard_arrow_down</mat-icon>
-              </b></span></a>
+              </b></span
+            ></a
+          >
           <div id="collapseExample" class="collapse" [class.show]="isOpen">
             <ul class="nav">
-              <li class="nav-item"><a class="nav-link"><span class="sidebar-mini">MP</span><span
-                    class="sidebar-normal">My Profile</span></a></li>
-              <li class="nav-item"><a class="nav-link"><span class="sidebar-mini">EP</span><span
-                    class="sidebar-normal">Edit Profile</span></a></li>
-              <li class="nav-item"><a class="nav-link"><span class="sidebar-mini">S</span><span
-                    class="sidebar-normal">Settings</span></a></li>
+              <li class="nav-item">
+                <a class="nav-link"
+                  ><span class="sidebar-mini">MP</span
+                  ><span class="sidebar-normal">My Profile</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"
+                  ><span class="sidebar-mini">EP</span
+                  ><span class="sidebar-normal">Edit Profile</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"
+                  ><span class="sidebar-mini">F</span
+                  ><span class="sidebar-normal"
+                    > Forms<a
+                      data-toggle="collapse"
+                      class="collapsed"
+                      aria-expanded="false"
+                      (click)="FormToggle()"
+                    >
+                      <span>
+                        <b>
+                          <mat-icon>keyboard_arrow_down</mat-icon>
+                        </b></span
+                      ></a
+                    >
+                    <div
+                      id="collapseExample"
+                      class="collapse"
+                      [class.show]="FormIsOpen"
+                    >
+                      <ul class="nav">
+                        <li class="nav-item">
+                          <a class="nav-link"
+                          [routerLink]="['/Home/addadmin']"
+                            ><span class="sidebar-mini">AD</span
+                            ><span class="sidebar-normal">Add Admin</span></a
+                          >
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link"
+                            ><span class="sidebar-mini">AC</span
+                            ><span class="sidebar-normal">Add Company</span></a
+                          >
+                        </li>
+                      </ul></div></span
+                ></a>
+              </li>
             </ul>
           </div>
         </div>
       </div>
       <ul class="nav">
-
-
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="nav-item">
+        <li
+          routerLinkActive="active"
+          *ngFor="let menuItem of menuItems"
+          class="nav-item"
+        >
           <a class="nav-link" [routerLink]="[menuItem.path]">
-            <i class="material-icons">{{menuItem.icon}}</i>
-            <p>{{menuItem.title}}</p>
+            <i class="material-icons">{{ menuItem.icon }}</i>
+            <p>{{ menuItem.title }}</p>
           </a>
         </li>
       </ul>
     </div>
-
   </div>
 
   <!-- <div class="sidebar-background"></div> -->
-
-
 </div>
