@@ -1,19 +1,24 @@
 <section class="content m-5">
   <div class="container-fluid">
     <div class="row">
-
+      <div class="d-flex justify-content-center">
+        <div class="alert alert-success alert-dismissible fade show mt-3 col-md-5" role="alert" *ngIf="MessageShow">
+          <strong> {{DeleteMessage}}</strong>
+        </div>
+      </div>
       <div class="col-md-10">
         <div class="card">
 
           <div class="card-header bg-white">
             <h3 class="card-title pt-2 fs-4 ps-4">Users Table</h3>
             <div class="card-header border-bottom-0">
-              <div class="form-group">
+              <div class="input-group ">
                 <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="search">
-                <!-- <span>
-                      <mat-icon>search</mat-icon>
-                  </span> -->
+                <span class="input-group-text">
+                  <fa-icon [icon]="faSearch" class=""></fa-icon>
+                  </span>
               </div>
+              
             </div>
           </div>
           <div class="card-body p-4">
@@ -42,8 +47,7 @@
                   <td>{{ user.email}}</td>
                   <td>
                     <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#DeleteProduct"
-                      aria-label="Close">
-                      <!-- (click)="WantToDeleteId = product.id" -->
+                      aria-label="Close" (click)="DeleteUserId = user.id">
                       <fa-icon [icon]="faTrash" class="mt-2 me-2"></fa-icon>
                       Delete
                     </a>
@@ -65,8 +69,8 @@
                             <button type="button" class="btn btn-success" data-bs-dismiss="modal">
                               No
                             </button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                              <!-- (click)="DeleteProduct(WantToDeleteId)" -->
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" 
+                            (click)="Deleteuser(DeleteUserId)">
                               yes..delete
                             </button>
                           </div>

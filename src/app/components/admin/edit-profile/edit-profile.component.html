@@ -1,1 +1,71 @@
-<p>edit-profile works!</p>
+<ng-container [ngSwitch]="stepperOrientation | async">
+    <div *ngSwitchCase="'horizontal'"></div>
+    <div *ngSwitchCase="'vertical'"></div>
+</ng-container>
+
+<mat-stepper class="example-stepper" [orientation]="(stepperOrientation | async)!">
+    <mat-step [stepControl]="firstFormGroup" label="change Profile picture">
+        <form [formGroup]="firstFormGroup">
+            <div class="imageContainer mt-5">
+                <div class="profile-image">
+                    <img width="120" height="120" class="margin-top mat-elevation-z1"
+                        [src]="user.imageURL ?? '/assets/images/mike.jpg'" />
+                    <button mat-mini-fab (click)="inputField.click()">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </div>
+                <input #inputField hidden type="file" (change)="uploadFile($event)" />
+            </div>
+
+
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Edit your Name ">
+        <div class="mt-5">
+
+            <form [formGroup]="secondFormGroup">
+                <mat-form-field appearance="fill">
+                    <input type="text" matInput formControlName="secondCtrl" [(ngModel)]="user.name" />
+
+                </mat-form-field>
+
+                <button type="button" (click)="updateName(user.name)" class="my-4 ms-2" mat-raised-button
+                    color="primary">
+                    Save
+                </button>
+            </form>
+        </div>
+
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup" label="edit your Email ">
+        <form [formGroup]="thirdFormGroup">
+            <div class="mt-5">
+                <mat-form-field appearance="fill">
+                    <input matInput formControlName="thirdCtrl" [(ngModel)]="user.email" required>
+                </mat-form-field>
+                <button type="button" (click)="updateEmail(user.email)" class="my-4 ms-2" mat-raised-button
+                    color="primary">
+                    Save
+                </button>
+            </div>
+
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup" label="Edit Password ">
+        <form [formGroup]="thirdFormGroup">
+            <div class="mt-5">
+                <mat-form-field appearance="fill">
+
+                    <mat-label>Email Address</mat-label>
+                    <input matInput formControlName="thirdCtrl" [(ngModel)]="user.email" required>
+                </mat-form-field>
+                <button type="button" (click)="updateEmail(user.email)" class="my-4 ms-2" mat-raised-button
+                    color="primary">
+                    Save
+                </button>
+            </div>
+
+        </form>
+    </mat-step>
+
+</mat-stepper>

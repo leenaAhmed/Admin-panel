@@ -1,12 +1,12 @@
 <div class="alert  alert-danger" *ngIf="message"> {{ message }}</div>
 <div class="card card-solid">
     <div class="card-header border-bottom-0">
-        <div class="form-group">
+        <div class="input-group ">
             <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="search">
-            <!-- <span>
-                <mat-icon>search</mat-icon>
-            </span> -->
-        </div>
+            <span class="input-group-text">
+              <fa-icon [icon]="faSearch" class=""></fa-icon>
+              </span>
+          </div>
     </div>
     <div class="card-body pb-0">
 

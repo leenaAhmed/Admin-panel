@@ -1,17 +1,17 @@
 <div class="sidebar  sidebar-background " id="navigation">
   <div class="mainbackground">
     <div class="logo">
-      <a href="" class="simple-text ">
+      <a class="simple-text ">
 
         Wuzzuf
       </a>
     </div>
     <div class="sidebar-wrapper">
       <div class="user">
-        <div class="photo"><img src="https://github.com/mdo.png"></div>
+        <div class="photo"><img src={{AdminsList.imageURL}}></div>
         <div class="user-info">
           <a data-toggle="collapse" class="collapsed" (click)="sidebarToggle()" aria-expanded="false">
-            <span> leena Ahmed <b class="caret">
+            <span> {{AdminsList.name}} <b class="caret">
                 <mat-icon>keyboard_arrow_down</mat-icon>
               </b></span></a>
           <div id="collapseExample" class="collapse" [class.show]="isOpen">
@@ -20,8 +20,10 @@
                 <a class="nav-link" [routerLink]="['user/profile']">
                   <span class="sidebar-mini">MP</span><span class="sidebar-normal">My Profile</span></a>
               </li>
-              <li class="nav-item"><a class="nav-link"><span class="sidebar-mini">EP</span><span
-                    class="sidebar-normal">Edit Profile</span></a></li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['user/editProfile']">
+                  <span class="sidebar-mini">EP</span><span class="sidebar-normal">Edit Profile</span></a>
+              </li>
               <li class="nav-item"><a class="nav-link"><span class="sidebar-mini">S</span><span
                     class="sidebar-normal">Settings</span></a></li>
             </ul>

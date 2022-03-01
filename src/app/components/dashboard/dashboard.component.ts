@@ -1,5 +1,5 @@
 import { IUser } from './../../Models/iuser';
-import { UsersService } from './../../services/users.service';
+import { UsersService } from '../../services/users/users.service';
 import { Component, OnInit } from '@angular/core';
 import {
   faUser,
@@ -9,7 +9,7 @@ import {
   faArrowAltCircleRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { CompanyService } from 'src/app/Services/companyUser/company.service';
 import { IuserCompany } from 'src/app/model/iuser-company';
 
 @Component({
@@ -24,8 +24,9 @@ export class DashboardComponent implements OnInit {
   faArrowAltCircleRight = faArrowAltCircleRight;
   faPaperclip = faPaperclip;
   TotalUsers: number = 0;
+  TotalCompanies: number = 0;
   UsersList: IUser[] = [];
-  companyList: IuserCompany[] = [];
+  CompanyList: IuserCompany[] = [];
   SubScriptionArray: Subscription[] = [];
 
   constructor(
@@ -35,6 +36,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetTotalUsers();
+    this.GetTotalCompanies();
   }
   ngOnDestroy(): void {
     for (let SubScripe of this.SubScriptionArray) {
@@ -53,5 +55,18 @@ export class DashboardComponent implements OnInit {
     );
 
     this.SubScriptionArray.push(UsersObserver);
+  }
+
+  GetTotalCompanies(): void {
+    let CompanyObserver = this.companyService
+      .getCompanyUsers()
+      .subscribe((data: any) => {
+        data.map((company: any) => {
+          this.CompanyList.push(company);
+          console.log(company);
+        });
+        this.TotalCompanies = this.CompanyList.length;
+      });
+    this.SubScriptionArray.push(CompanyObserver);
   }
 }

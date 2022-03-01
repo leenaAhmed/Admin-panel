@@ -5,6 +5,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatStepperModule } from '@angular/material/stepper';
 
 const routes: Routes = [
   { path: 'user/editProfile', redirectTo: '/', pathMatch: 'full' },
@@ -18,6 +23,12 @@ const routes: Routes = [
     CommonModule,
     MatIconModule,
     FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatStepperModule,
     RouterModule.forChild(routes),
   ],
 })

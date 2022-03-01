@@ -3,13 +3,12 @@
         <div class="card card-user">
             <div class="image"><img alt="..." src="assets/Images/damir-bosnjak.jpg"></div>
             <div class="card-body">
-                <div class="author"><img alt="..." class="avatar border-gray" src="assets/Images/mike.jpg">
-                    <h5 class="title">Chet Faker</h5>
+                <div class="author"><img alt="..." class="avatar border-gray" [src]="loggedAdmin.imageURL">
+                    <h5 class="title">{{loggedAdmin.name}}</h5>
 
-                    <p class="description"> @chetfaker </p>
+                    <p class="description"> {{loggedAdmin.email}} </p>
                 </div>
                 <p class="description text-center">
-                    "I like the way you work it <br> No diggity <br> I wanna bag it up" </p>
             </div>
             <div class="card-footer">
                 <hr>
@@ -38,14 +37,14 @@
             </div>
             <div class="card-body">
                 <ul class="list-unstyled team-members">
-                    <li>
+                    <li *ngFor="let member of adminList">
                         <div class="row">
                             <div class="col-md-2 col-2">
                                 <div class="avatar"><img alt="Circle Image"
-                                        class="img-circle img-no-padding img-responsive" src="assets/Images/mike.jpg">
+                                        class="img-circle img-no-padding img-responsive" [src]="member.imageURL">
                                 </div>
                             </div>
-                            <div class="col-md-7 col-7"> Martina Khaled
+                            <div class="col-md-7 col-7"> {{member.name}}
 
                             </div>
                             <div class="col-md-3 col-3 text-right"><button
