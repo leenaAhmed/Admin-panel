@@ -6,6 +6,8 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import { AdminIsLoginGuard } from './Guards/admin-is-login.guard';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { AdminModule } from './components/admin/admin.module';
+
 // canActivate: [AdminIsLoginGuard],
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LogInComponent },
@@ -17,6 +19,13 @@ const routes: Routes = [
       { path: 'admin', component: CompanyContactsComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'usertable', component: UserTableComponent },
+      {
+        path: 'user',
+        loadChildren: () =>
+          import('src/app/components/admin/admin.module').then(
+            (m) => m.AdminModule
+          ),
+      },
     ],
   },
 ];

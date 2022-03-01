@@ -46,14 +46,16 @@ export class NavbarComponent implements OnInit {
   }
   getTitle() {
     var titlee = this.location.prepareExternalUrl(this.location.path());
-    console.log(titlee);
     if (titlee.charAt(0) === '#') {
       titlee = titlee.slice(1);
     }
     for (var item = 0; item < this.listTitles.length; item++) {
       if (this.listTitles[item].path === titlee) {
+        console.log(this.listTitles);
         return this.listTitles[item].title;
       }
+      // console.log(titlee);
+      // console.log(this.listTitles[item]);
     }
     return 'Dashboard';
   }
@@ -66,11 +68,11 @@ export class NavbarComponent implements OnInit {
   }
   sidebarOpen() {
     const toggleButton = this.toggleButton;
-    console.log(toggleButton);
+    // console.log(toggleButton);
     const html = document.getElementsByTagName('html')[0];
     const navigation = <HTMLElement>document.getElementById('navigation');
 
-    console.log(navigation);
+    // console.log(navigation);
     const mainPanel = <HTMLElement>(
       document.getElementsByClassName('main-panel')[0]
     );
@@ -89,7 +91,7 @@ export class NavbarComponent implements OnInit {
   sidebarClose() {
     const html = document.getElementsByTagName('html')[0];
     const navigation = <HTMLElement>document.getElementById('navigation');
-    console.log(navigation);
+    // console.log(navigation);
     const mainPanel = <HTMLElement>(
       document.getElementsByClassName('main-panel')[0]
     );

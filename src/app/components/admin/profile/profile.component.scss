@@ -1,0 +1,42 @@
+.card {
+  border-radius: 12px;
+  box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
+}
+
+.card-user .image {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+
+  height: 200px;
+  overflow: hidden;
+}
+.card .card-footer {
+  background-color: transparent;
+  border: 0;
+}
+
+.card-user .author {
+  text-align: center;
+  text-transform: none;
+  margin-top: -77px;
+}
+
+.card .avatar {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.card .img-circle {
+  max-width: 100%;
+}
+.card-user .avatar {
+  width: 124px;
+  height: 124px;
+  border: 1px solid #fff;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}

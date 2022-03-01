@@ -16,8 +16,10 @@
               </b></span></a>
           <div id="collapseExample" class="collapse" [class.show]="isOpen">
             <ul class="nav">
-              <li class="nav-item"><a class="nav-link"><span class="sidebar-mini">MP</span><span
-                    class="sidebar-normal">My Profile</span></a></li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['user/profile']">
+                  <span class="sidebar-mini">MP</span><span class="sidebar-normal">My Profile</span></a>
+              </li>
               <li class="nav-item"><a class="nav-link"><span class="sidebar-mini">EP</span><span
                     class="sidebar-normal">Edit Profile</span></a></li>
               <li class="nav-item"><a class="nav-link"><span class="sidebar-mini">S</span><span

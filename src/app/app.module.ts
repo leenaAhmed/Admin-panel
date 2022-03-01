@@ -20,6 +20,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import { FilterPipe } from './pipe/filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
