@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Iadmin } from 'src/app/model/iadmin';
 import { AdminService } from 'src/app/services/admin.service';
-import { AdminAuthService } from './../../../services/auth/adminAuth.service';
+import { AdminAuthService } from '../../../services/auth/adminAuth.service';
 
 @Component({
   selector: 'app-profile',

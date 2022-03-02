@@ -55,6 +55,9 @@ export class AdminAuthService {
   Logout() {
     return this.FireAuth.signOut();
   }
+  SignUp(Email: string, Password: string) {
+    return this.FireAuth.createUserWithEmailAndPassword(Email, Password);
+  }
 
   updateUserName(name: string) {
     return this.firestore.doc<Iadmin>(`admin/${this.userId}`).update({ name });

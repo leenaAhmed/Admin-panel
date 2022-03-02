@@ -1,5 +1,4 @@
 import { IAdmin } from './../../Models/iadmin';
-import { AdminService } from './../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
 import { Iadmin } from 'src/app/model/iadmin';
@@ -31,6 +30,7 @@ export class SidebarComponent implements OnInit {
 
   AdminsList: Iadmin = {} as Iadmin;
   constructor(private authService: AdminAuthService) {}
+  FormIsOpen: boolean = false;
 
   ngOnInit(): void {
     this.menuItems = ROUTES.filter((menuItem) => menuItem);
@@ -38,6 +38,10 @@ export class SidebarComponent implements OnInit {
   }
   sidebarToggle() {
     this.isOpen = !this.isOpen;
+  }
+
+  FormToggle() {
+    this.FormIsOpen = !this.FormIsOpen;
   }
 
   GetUsers(): void {

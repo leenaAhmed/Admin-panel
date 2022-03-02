@@ -1,3 +1,4 @@
+import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompanyContactsComponent } from './components/company-contacts/company-contacts.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
             (m) => m.AdminModule
           ),
       },
+      { path: 'addadmin', component: AddAdminComponent },
     ],
   },
 ];
