@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IuserCompany } from 'src/app/model/iuser-company';
 import { CompanyService } from 'src/app/services/companyUser/company.service';
 import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
-// import { CompanyJobsService } from 'src/app/services/company-jobs.service';
+import { CompanyJobsService } from 'src/app/services/company-jobs.service';
 
 @Component({
   selector: 'app-jobs-page',
@@ -20,7 +20,8 @@ export class JobsPageComponent implements OnInit {
   CompanyId: string = '';
   Clicked: boolean = false;
   constructor(
-    private CompanyService: CompanyService // private CompanyIdServ: CompanyJobsService
+    private CompanyService: CompanyService,
+    private CompanyIdServ: CompanyJobsService
   ) {}
 
   ngOnInit(): void {
@@ -38,7 +39,7 @@ export class JobsPageComponent implements OnInit {
   }
 
   SendCompanyId(Id: string) {
-    // this.CompanyIdServ.CompanyId = Id;
+    this.CompanyIdServ.CompanyId = Id;
     this.Clicked = true;
   }
 }

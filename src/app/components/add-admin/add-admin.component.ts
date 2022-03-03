@@ -9,7 +9,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
-// import { AdminAuthService } from 'src/app/Services/adminauth.service';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({

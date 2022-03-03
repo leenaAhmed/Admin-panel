@@ -1,23 +1,23 @@
-import { Component, OnInit } from "@angular/core";
-import { IJob } from "src/app/Models/ijob";
+import { Component, OnInit } from '@angular/core';
+import { IJob } from 'src/app/Models/ijob';
 import {
   faTrash,
   faSearch,
   faCheck,
-  faClose
-} from "@fortawesome/free-solid-svg-icons";
-import { JobsService } from "src/app/Services/jobs.service";
-import { Subscription } from "rxjs";
-import { CompanyJobsService } from "src/app/Services/company-jobs.service";
-import { Router } from "@angular/router";
+  faClose,
+} from '@fortawesome/free-solid-svg-icons';
+import { JobsService } from 'src/app/services/jobs.service';
+import { Subscription } from 'rxjs';
+import { CompanyJobsService } from 'src/app/services/company-jobs.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-pending-jobs",
-  templateUrl: "./pending-jobs.component.html",
-  styleUrls: ["./pending-jobs.component.scss"]
+  selector: 'app-pending-jobs',
+  templateUrl: './pending-jobs.component.html',
+  styleUrls: ['./pending-jobs.component.scss'],
 })
 export class PendingJobsComponent implements OnInit {
-  searchText: string = "";
+  searchText: string = '';
   faCheck = faCheck;
   faClose = faClose;
   faSearch = faSearch;
@@ -26,13 +26,13 @@ export class PendingJobsComponent implements OnInit {
   tableSize: number = 5;
   JobsList: IJob[] = [];
   PendingJobsList: IJob[] = [];
-  Message: string = "";
+  Message: string = '';
   MessageShow: boolean = false;
-  PendingMessage: string = "";
+  PendingMessage: string = '';
   SubScriptionArray: Subscription[] = [];
-  CompanyId: string = "";
-  UpdatedJobId: string = "";
-  NewStatus: string = "";
+  CompanyId: string = '';
+  UpdatedJobId: string = '';
+  NewStatus: string = '';
 
   constructor(
     private JobsServ: JobsService,
@@ -57,11 +57,11 @@ export class PendingJobsComponent implements OnInit {
       this.JobsList = data.map((job: any) => {
         return {
           id: job.payload.doc.id,
-          ...job.payload.doc.data()
+          ...job.payload.doc.data(),
         };
       });
       for (let i = 0; i < this.JobsList.length; i++) {
-        if (this.JobsList[i].status == "PENDING") {
+        if (this.JobsList[i].status == 'PENDING') {
           this.PendingJobsList.push(this.JobsList[i]);
           this.count++;
         }
@@ -72,33 +72,32 @@ export class PendingJobsComponent implements OnInit {
     this.SubScriptionArray.push(JobObserver);
   }
 
-//   GetPendingJobs()
-//   {
-//     let JobObserver = this.JobsServ.GetAcceptedJobs().subscribe((data: any) => {
-//       this.JobsList = data.map((job: any) => {
-//         return {
-//           id: job.payload.doc.id,
-//           ...job.payload.doc.data()
-//         };
-//       }); this.count = this.JobsList.length;
-//       console.log(this.JobsList)
-//   });
-//   this.SubScriptionArray.push(JobObserver);
-// }
+  //   GetPendingJobs()
+  //   {
+  //     let JobObserver = this.JobsServ.GetAcceptedJobs().subscribe((data: any) => {
+  //       this.JobsList = data.map((job: any) => {
+  //         return {
+  //           id: job.payload.doc.id,
+  //           ...job.payload.doc.data()
+  //         };
+  //       }); this.count = this.JobsList.length;
+  //       console.log(this.JobsList)
+  //   });
+  //   this.SubScriptionArray.push(JobObserver);
+  // }
 
   UpdateStatus(JobId: string) {
-    this.JobsServ
-      .UpdateStatus(JobId, this.NewStatus, this.CompanyId)
+    this.JobsServ.UpdateStatus(JobId, this.NewStatus, this.CompanyId)
       .then(() => {
-        this.Message = "The status updated successfully!";
+        this.Message = 'The status updated successfully!';
         setTimeout(() => {
           this.MessageShow = true;
         }, 1000);
         setTimeout(() => {
           this.MessageShow = false;
-          this.Route.navigate(["/Home/jobpage/jobtable"]);
+          this.Route.navigate(['/Home/jobpage/jobtable']);
         }, 3000);
       })
-      .catch(err => (this.Message = "Error ! "));
+      .catch((err) => (this.Message = 'Error ! '));
   }
 }
