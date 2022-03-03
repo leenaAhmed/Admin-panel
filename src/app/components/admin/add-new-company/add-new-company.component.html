@@ -48,8 +48,6 @@
                                     enterr correct email pattern
                                 </small>
                                 <small class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</small>
-
-
                             </div>
 
                         </div>
@@ -110,7 +108,7 @@
                             </mat-form-field>
                             <div>
                                 <small class="text-danger"
-                                    *ngIf="jobTitle?.errors?.['required'] && jobTitle?.touched">Password is
+                                    *ngIf="jobTitle?.errors?.['required'] && jobTitle?.touched">jobTitle is
                                     required.</small>
                             </div>
                         </div>
@@ -120,7 +118,7 @@
                                 <input matInput formControlName="companyName" required>
                             </mat-form-field>
                             <small class="text-danger"
-                                *ngIf="companyName?.errors?.['required'] && companyName?.touched">Password is
+                                *ngIf="companyName?.errors?.['required'] && companyName?.touched">Company name is
                                 required.</small>
                         </div>
                     </div>
@@ -139,13 +137,13 @@
                             <mat-form-field appearance="fill">
                                 <mat-label>Company size(number of employees)</mat-label>
                                 <mat-select required formControlName="companySize">
-                                    <mat-option *ngFor="let size of companysize" [value]="size.value">
-                                        {{size.value}}
+                                    <mat-option *ngFor="let size of companysize" [value]="size.size">
+                                        {{size.size}}
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>
                             <small class="text-danger"
-                                *ngIf="companySize?.errors?.['required'] && companySize?.touched">Password is
+                                *ngIf="companySize?.errors?.['required'] && companySize?.touched">companysize is
                                 required.</small>
                         </div>
                     </div>

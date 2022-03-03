@@ -23,7 +23,7 @@ interface CompanySize {
 })
 export class AddNewCompanyComponent implements OnInit {
   @ViewChild('Image') Image!: ElementRef;
-  companysize: CompanySize[] = [];
+  companysize: any[] = [];
   formValue: FormGroup;
   passwords: FormGroup;
   errorMessage: string = '';
@@ -83,8 +83,14 @@ export class AddNewCompanyComponent implements OnInit {
     this.companyService.getcompanyIndustry().subscribe((industry: any) => {
       this.companyIndustry = industry;
     });
-    this.companyService.getcompanySize().subscribe((size: any) => {
-      this.companysize = size;
+    this.companyService.getcompanySize().subscribe((sizes: any) => {
+      this.companysize = sizes.map((size: any) => {
+        console.log(size.payload.doc.data());
+        return {
+          id: size.payload.doc.id,
+          ...size.payload.doc.data(),
+        };
+      });
     });
   }
 
