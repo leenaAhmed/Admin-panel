@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
 import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { ModelExitComponent } from '../model-exit/model-exit.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-navbar',
@@ -34,7 +36,8 @@ export class NavbarComponent implements OnInit {
     private element: ElementRef,
     private router: Router,
     private companyService: CompanyService,
-    private AdminAuth: AdminAuthService
+    private AdminAuth: AdminAuthService,
+    private dialog: MatDialog
   ) {
     this.nativeElement = element.nativeElement;
     this.sidebarVisible = false;
@@ -120,6 +123,7 @@ export class NavbarComponent implements OnInit {
   }
 
   Logout() {
-    this.AdminAuth.Logout().then(() => this.router.navigate(['']));
+    const ref = this.dialog.open(ModelExitComponent);
+    // this.AdminAuth.Logout().then(() => this.router.navigate(['']));
   }
 }
