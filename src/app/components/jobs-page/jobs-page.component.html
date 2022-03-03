@@ -1,0 +1,97 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mb-5">
+        <div class="card d-flex justify-content-center">
+          <div class="card-header bg-white">
+            <h3 class="card-title pt-2 fs-4 ps-4">Companyies Table</h3>
+            <div class="card-header border-bottom-0">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="searchText"
+                  placeholder="search"
+                />
+                <span class="input-group-text">
+                  <fa-icon [icon]="faSearch"></fa-icon>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="card-body p-4">
+            <table class="table table-bordered pb-0">
+              <thead>
+                <tr>
+                  <th>Company Name</th>
+                  <th class="text-center"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="
+                    let company of CompanyList
+                      | filter: searchText
+                      | paginate
+                        : {
+                            itemsPerPage: tableSize,
+                            currentPage: page,
+                            totalItems: count
+                          };
+                    let i = index
+                  "
+                >
+                  <td class="ps-3">{{ company.companyName }}</td>
+                  <td class="d-flex justify-content-center">
+                    <a
+                      class="btn btn-primary btn-sm"
+                      (click)="SendCompanyId(company.id)"
+                      [routerLink]="['/Home/jobpage/']"
+                    >
+                      <fa-icon [icon]="faPlus" class="mt-2 me-2"></fa-icon>
+                      Show Jobs
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="card-footer bg-white">
+              <pagination-controls
+                previousLabel=""
+                nextLabel=""
+                (pageChange)="page = $event"
+              >
+              </pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="card text-center mb-5" *ngIf="Clicked">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/Home/jobpage/jobtable']"
+          aria-current="true"
+          >All Jobs
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/Home/jobpage/pendingjobtable']"
+          >Pending Jobs</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <router-outlet></router-outlet>
+  </div>
+</div>

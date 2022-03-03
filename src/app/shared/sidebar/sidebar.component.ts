@@ -12,7 +12,7 @@ export const ROUTES: any[] = [
     class: '',
   },
   {
-    path: 'company',
+    path: 'jobpage/',
     title: 'Jobs',
     icon: ' content_paste',
     class: '',
@@ -36,6 +36,7 @@ export class SidebarComponent implements OnInit {
   }
   sidebarToggle() {
     this.isOpen = !this.isOpen;
+    this.FormIsOpen = false ;
   }
 
   FormToggle() {

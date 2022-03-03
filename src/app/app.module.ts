@@ -22,6 +22,10 @@ import { LogInComponent } from './components/log-in/log-in.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
+import { JobsTableComponent } from './components/jobs-table/jobs-table.component';
+import { JobsPageComponent } from './components/jobs-page/jobs-page.component';
+import { PendingJobsComponent } from './components/pending-jobs/pending-jobs.component';
+import { ConvertToDatePipe } from './pipe/convert-to-date.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +38,10 @@ import { AddAdminComponent } from './components/add-admin/add-admin.component';
     LogInComponent,
     UserTableComponent,
     AddAdminComponent,
+    JobsTableComponent,
+    JobsPageComponent,
+    PendingJobsComponent,
+    ConvertToDatePipe,
   ],
   imports: [
     BrowserModule,

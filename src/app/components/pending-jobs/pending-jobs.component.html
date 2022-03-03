@@ -1,0 +1,186 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        <div
+          class="alert alert-success alert-dismissible fade show mt-3 col-md-5"
+          role="alert"
+          *ngIf="MessageShow"
+        >
+          <strong> {{ Message }}</strong>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header bg-white">
+            <h3 class="card-title pt-2 fs-4 ps-4 d-flex justify-content-left">
+              Pending Jobs Table
+            </h3>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="searchText"
+                placeholder="search"
+              />
+              <span class="input-group-text">
+                <fa-icon [icon]="faSearch"></fa-icon>
+              </span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <p *ngIf="count == 0" class="card-title mb-4 mt-2 text-center fs-5">
+              No Jobs for this company
+            </p>
+            <table
+              id="example2"
+              class="table table-bordered table-hover"
+              *ngIf="count != 0"
+            >
+              <thead>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Job Category</th>
+                  <th>Job Type</th>
+                  <th>Job Career level</th> 
+                  <th>Job Salary</th>
+                  <th>Job Date</th>
+                  <th>Job Status</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="
+                    let job of PendingJobsList
+                      | filter: searchText
+                      | paginate
+                        : {
+                            itemsPerPage: tableSize,
+                            currentPage: page,
+                            totalItems: count
+                          };
+                    let i = index
+                  "
+                >
+                  <td>{{ job.jobTitle }}</td>
+                  <td>{{ job.jobCategories }}</td>
+                  <td>{{ job.jobType }}</td>
+                  <td>{{ job.careerLevel }}</td>
+                  <td>{{ job.salary}}</td>
+                  <td>{{job.date.seconds | convertToDate}}</td>
+                  <td>
+                    <a
+                      class="btn btn-danger btn-sm"
+                      data-bs-toggle="modal"
+                      data-bs-target="#PendingJobModal"
+                      aria-label="Close"
+                      (click)="
+                        PendingMessage =
+                          'refused' &&
+                          (UpdatedJobId = job.id && (NewStatus = 'REFUSED'))
+                      "
+                    >
+                      <fa-icon [icon]="faClose"></fa-icon>
+                      Refused
+                    </a>
+                    <a
+                      class="btn btn-success btn-sm ms-2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#PendingJobModal"
+                      aria-label="Close"
+                      (click)="
+                        PendingMessage =
+                          'accept' &&
+                          (UpdatedJobId = job.id && (NewStatus = 'ACCEPTED'))
+                      "
+                    >
+                      <fa-icon [icon]="faCheck"></fa-icon>
+                      Accepted
+                    </a>
+
+                    <div
+                      class="modal fade"
+                      id="PendingJobModal"
+                      data-bs-backdrop="static"
+                      data-bs-keyboard="false"
+                      tabindex="-1"
+                      aria-labelledby="staticBackdropLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h3
+                              class="modal-title text-danger"
+                              id="staticBackdropLabel"
+                            >
+                              <strong> Warning !</strong>
+                            </h3>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body d-flex justify-content-left">
+                            <strong>
+                              Are you sure you want to
+                              <strong class="text-primary">{{
+                                PendingMessage
+                              }}</strong>
+                              this job ?</strong
+                            >
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-danger"
+                              data-bs-dismiss="modal"
+                            >
+                              No
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-success"
+                              data-bs-dismiss="modal"
+                              (click)="UpdateStatus(job.id)"
+                            >
+                              yes
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Job Category</th>
+                  <th>Job Type</th>
+                  <th>Job Career level</th>
+                  <th>Job Salary</th>
+                  <th>Job Date</th>
+                  <th>Job Status</th>
+                  
+                </tr>
+              </tfoot>
+            </table>
+            <div class="card-footer bg-white">
+              <pagination-controls
+                previousLabel=""
+                nextLabel=""
+                (pageChange)="page = $event"
+              >
+              </pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
