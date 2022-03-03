@@ -12,7 +12,7 @@ import {
 import { Subscription } from 'rxjs';
 import { CompanyService } from 'src/app/services/companyUser/company.service';
 import { IuserCompany } from 'src/app/model/iuser-company';
-import { JobsService } from 'src/app/services/jobs.service';
+import { JobsService } from 'src/app/Services/Jobs/jobs.service';
 
 @Component({
   selector: 'app-dashboard',
