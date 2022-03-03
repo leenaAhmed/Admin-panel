@@ -1,8 +1,8 @@
-import { UsersService } from '../../services/users/users.service';
 import { IUser } from './../../Models/iuser';
 import { Component, OnInit } from '@angular/core';
 import { faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
+import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
   selector: 'app-user-table',
@@ -16,7 +16,7 @@ export class UserTableComponent implements OnInit {
   SubScriptionArray: Subscription[] = [];
   page: number = 1;
   count: number = 0;
-  tableSize: number = 3;
+  tableSize: number = 10;
   searchText: string = '';
   DeleteMessage: string = '';
   DeleteUserId: string = '';
@@ -42,9 +42,10 @@ export class UserTableComponent implements OnInit {
             ...user.payload.doc.data(),
           };
         });
+        this.count = this.UsersList.length;
       }
     );
-    this.count = this.UsersList.length;
+
     this.SubScriptionArray.push(UsersObserver);
   }
 
@@ -59,7 +60,7 @@ export class UserTableComponent implements OnInit {
           this.MessageShow = false;
         }, 5000);
       })
-      .catch((err) => console.log(err));
+      .catch((err: any) => console.log(err));
     console.log(id);
   }
 }

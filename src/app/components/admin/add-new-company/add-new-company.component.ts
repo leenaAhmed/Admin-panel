@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 import { mustMatch } from 'src/app/custom/password';
 import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
 import { IuserCompany } from 'src/app/model/iuser-company';
-import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { CompanyService } from 'src/app/Services/companyUser/company.service';
 interface CompanySize {
   value: string;
 }

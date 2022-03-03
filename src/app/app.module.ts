@@ -27,6 +27,10 @@ import { FilterPipe } from './pipe/filter.pipe';
 
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { DailogComponent } from './shared/dailog/dailog.component';
+import { JobsTableComponent } from './components/jobs-table/jobs-table.component';
+import { JobsPageComponent } from './components/jobs-page/jobs-page.component';
+import { PendingJobsComponent } from './components/pending-jobs/pending-jobs.component';
+import { ConvertToDatePipe } from './pipe/convert-to-date.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,9 +41,13 @@ import { DailogComponent } from './shared/dailog/dailog.component';
     FilterPipe,
     DashboardComponent,
     LogInComponent,
-    UserTableComponent,
     AddAdminComponent,
     DailogComponent,
+    JobsTableComponent,
+    JobsPageComponent,
+    PendingJobsComponent,
+    ConvertToDatePipe,
+    UserTableComponent,
   ],
   imports: [
     BrowserModule,

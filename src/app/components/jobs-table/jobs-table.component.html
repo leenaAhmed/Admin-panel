@@ -1,4 +1,4 @@
-<section class="content m-5">
+<section class="content">
   <div class="container-fluid">
     <div class="row">
       <div class="d-flex justify-content-center">
@@ -7,41 +7,53 @@
           role="alert"
           *ngIf="MessageShow"
         >
-          <strong> {{ DeleteMessage }}</strong>
+          <strong>{{ DeleteMessage }}</strong>
         </div>
       </div>
-      <div class="col-md-10">
+      <div class="col-12">
         <div class="card">
           <div class="card-header bg-white">
-            <h3 class="card-title pt-2 fs-4 ps-4">Users Table</h3>
-            <div class="card-header border-bottom-0">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  [(ngModel)]="searchText"
-                  placeholder="search"
-                />
-                <span class="input-group-text">
-                  <fa-icon [icon]="faSearch"></fa-icon>
-                </span>
-              </div>
+            <h3 class="card-title pt-2 fs-4 ps-4 d-flex justify-content-left">
+              Jobs Table
+            </h3>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="searchText"
+                placeholder="search"
+              />
+              <span class="input-group-text">
+                <fa-icon [icon]="faSearch"></fa-icon>
+              </span>
             </div>
           </div>
-          <div class="card-body p-4">
-            <table class="table pb-0">
+
+          <div class="card-body">
+            <p *ngIf="count == 0" class="card-title mb-4 mt-2 text-center fs-5">
+              No Jobs for this company
+            </p>
+            <table
+              id="example2"
+              class="table table-bordered"
+              *ngIf="count != 0"
+            >
               <thead>
                 <tr>
-                  <th style="width: 10px">#</th>
-                  <th>User Name</th>
-                  <th>User Email</th>
-                  <th style="width: 100px" class="text-center"></th>
+                  <th>Job Title</th>
+                  <th>Job Category</th>
+                  <th>Job Type</th>
+                  <th>Job Career Level</th>
+                  <th>Job Salery</th>
+                  <th>Job Date</th>
+                  <th></th>
                 </tr>
               </thead>
+
               <tbody>
                 <tr
                   *ngFor="
-                    let user of UsersList
+                    let job of AcceptedJobsList
                       | filter: searchText
                       | paginate
                         : {
@@ -52,16 +64,19 @@
                     let i = index
                   "
                 >
-                  <td>{{ i + 1 }}</td>
-                  <td>{{ user?.name }}</td>
-                  <td>{{ user.email }}</td>
+                  <td>{{ job.jobTitle }}</td>
+                  <td>{{ job.jobCategories }}</td>
+                  <td>{{ job.jobType }}</td>
+                  <td>{{ job.careerLevel }}</td>
+                  <td>{{ job.salary }}</td>
+                  <td>{{job.date.seconds | convertToDate}}</td>
                   <td>
                     <a
                       class="btn btn-danger btn-sm"
                       data-bs-toggle="modal"
-                      data-bs-target="#DeleteProduct"
+                      data-bs-target="#DeleteJob"
                       aria-label="Close"
-                      (click)="DeleteUserId = user.id"
+                      (click)="DeleteJobId = job.id"
                     >
                       <fa-icon [icon]="faTrash" class="mt-2 me-2"></fa-icon>
                       Delete
@@ -69,7 +84,7 @@
 
                     <div
                       class="modal fade"
-                      id="DeleteProduct"
+                      id="DeleteJob"
                       data-bs-backdrop="static"
                       data-bs-keyboard="false"
                       tabindex="-1"
@@ -83,7 +98,7 @@
                               class="modal-title text-danger"
                               id="staticBackdropLabel"
                             >
-                              <strong>Warning!</strong>
+                              <strong> Warning !</strong>
                             </h3>
                             <button
                               type="button"
@@ -92,9 +107,9 @@
                               aria-label="Close"
                             ></button>
                           </div>
-                          <div class="modal-body">
-                            <strong
-                              >Are you sure you want to delete this user
+                          <div class="modal-body d-flex justify-content-left">
+                            <strong>
+                              Are you sure you want to delete this user
                               ?</strong
                             >
                           </div>
@@ -110,7 +125,7 @@
                               type="button"
                               class="btn btn-danger"
                               data-bs-dismiss="modal"
-                              (click)="Deleteuser(DeleteUserId)"
+                              (click)="DeleteJob(DeleteJobId)"
                             >
                               yes..delete
                             </button>
@@ -121,6 +136,17 @@
                   </td>
                 </tr>
               </tbody>
+              <tfoot>
+                <tr>
+                  <th>Job Title</th>
+                  <th>Job Category</th>
+                  <th>Job Type</th>
+                  <th>Job Career Level</th>
+                  <th>Job Salery</th>
+                  <th>Job Date</th>
+                  <th></th>
+                </tr>
+              </tfoot>
             </table>
             <div class="card-footer bg-white">
               <pagination-controls
