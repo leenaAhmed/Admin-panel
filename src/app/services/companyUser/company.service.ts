@@ -22,7 +22,7 @@ export class CompanyService {
     return this.firestore.collection('companyIndustry').valueChanges();
   }
   getcompanySize() {
-    return this.firestore.collection('companySize').valueChanges();
+    return this.firestore.collection('companySize').snapshotChanges();
   }
   deleteuser(id: string) {
     return this.firestore.collection('company').doc(id).delete();
