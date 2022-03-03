@@ -6,9 +6,9 @@ import {
   faCheck,
   faClose,
 } from '@fortawesome/free-solid-svg-icons';
-import { JobsService } from 'src/app/services/jobs.service';
+import { JobsService } from 'src/app/services/Jobs/jobs.service';
 import { Subscription } from 'rxjs';
-import { CompanyJobsService } from 'src/app/services/company-jobs.service';
+import { CompanyJobsService } from 'src/app/services/Jobs/company-jobs.service';
 import { Router } from '@angular/router';
 
 @Component({

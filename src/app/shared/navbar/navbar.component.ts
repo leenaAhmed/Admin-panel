@@ -124,6 +124,5 @@ export class NavbarComponent implements OnInit {
 
   Logout() {
     const ref = this.dialog.open(ModelExitComponent);
-    // this.AdminAuth.Logout().then(() => this.router.navigate(['']));
   }
 }

@@ -1,5 +1,5 @@
 import { IJob } from 'src/app/Models/ijob';
-import { IuserCompany } from './../model/iuser-company';
+import { IuserCompany } from '../../model/iuser-company';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 @Injectable({
