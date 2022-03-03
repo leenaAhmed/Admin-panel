@@ -1,27 +1,26 @@
-import { CompanyJobsService } from "./../../Services/company-jobs.service";
-import { Component, OnInit } from "@angular/core";
-import { IuserCompany } from "src/app/model/iuser-company";
-import { CompanyService } from "src/app/Services/companyUser/company.service";
-import {  faSearch , faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Component, OnInit } from '@angular/core';
+import { IuserCompany } from 'src/app/model/iuser-company';
+import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
+// import { CompanyJobsService } from 'src/app/services/company-jobs.service';
 
 @Component({
-  selector: "app-jobs-page",
-  templateUrl: "./jobs-page.component.html",
-  styleUrls: ["./jobs-page.component.scss"]
+  selector: 'app-jobs-page',
+  templateUrl: './jobs-page.component.html',
+  styleUrls: ['./jobs-page.component.scss'],
 })
 export class JobsPageComponent implements OnInit {
   CompanyList: IuserCompany[] = [];
-  searchText: string = "";
+  searchText: string = '';
   faPlus = faPlus;
   faSearch = faSearch;
   page: number = 1;
   count: number = 0;
   tableSize: number = 5;
-  CompanyId: string = "";
+  CompanyId: string = '';
   Clicked: boolean = false;
   constructor(
-    private CompanyService: CompanyService,
-    private CompanyIdServ: CompanyJobsService
+    private CompanyService: CompanyService // private CompanyIdServ: CompanyJobsService
   ) {}
 
   ngOnInit(): void {
@@ -32,14 +31,14 @@ export class JobsPageComponent implements OnInit {
       this.CompanyList = data.map((ele: any) => {
         return {
           id: ele.payload.doc.id,
-          ...ele.payload.doc.data()
+          ...ele.payload.doc.data(),
         };
       });
     });
   }
 
   SendCompanyId(Id: string) {
-    this.CompanyIdServ.CompanyId = Id;
+    // this.CompanyIdServ.CompanyId = Id;
     this.Clicked = true;
   }
 }

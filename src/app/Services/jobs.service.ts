@@ -1,11 +1,9 @@
-import { IJob } from "src/app/Models/ijob";
-import { IuserCompany } from "./../model/iuser-company";
-import { Injectable } from "@angular/core";
-import { AngularFirestore } from "@angular/fire/firestore";
-import { CompanyService } from "./companyUser/company.service";
-
+import { IJob } from 'src/app/Models/ijob';
+import { IuserCompany } from './../model/iuser-company';
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class JobsService {
   CompanyList: IuserCompany[] = [];
@@ -13,15 +11,12 @@ export class JobsService {
   AllJobsList: IJob[] = [];
   JobCount: number = 0;
 
-  constructor(
-    private FireBase: AngularFirestore,
-    private CompanyServ: CompanyService,
-  ) {}
+  constructor(private FireBase: AngularFirestore) {}
 
   GetAllJobs(CompanyId: string) {
-    return this.FireBase
-      .collection(`company/${CompanyId}/jobs`)
-      .snapshotChanges();
+    return this.FireBase.collection(
+      `company/${CompanyId}/jobs`
+    ).snapshotChanges();
   }
 
   DeleteJob(JobId: string, CompanyId: string) {
@@ -30,7 +25,7 @@ export class JobsService {
 
   UpdateStatus(JobId: string, NewStatus: string, CompanyId: string) {
     return this.FireBase.doc(`company/${CompanyId}/jobs/${JobId}`).update({
-      status: NewStatus
+      status: NewStatus,
     });
   }
 
@@ -41,8 +36,7 @@ export class JobsService {
     return this.FireBase.collectionGroup('applicants').snapshotChanges();
   }
 
-  GetAcceptedJobs()
-  {
+  GetAcceptedJobs() {
     return this.FireBase.collectionGroup('jobs').snapshotChanges();
   }
 }

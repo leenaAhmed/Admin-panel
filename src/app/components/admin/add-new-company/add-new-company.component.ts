@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 import { mustMatch } from 'src/app/custom/password';
 import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
 import { IuserCompany } from 'src/app/model/iuser-company';
-import { CompanyService } from 'src/app/Services/companyUser/company.service';
+import { CompanyService } from 'src/app/services/companyUser/company.service';
 interface CompanySize {
   value: string;
 }
@@ -22,7 +22,7 @@ interface CompanySize {
   styleUrls: ['./add-new-company.component.scss'],
 })
 export class AddNewCompanyComponent implements OnInit {
-  @ViewChild('AdminImage') AdminImage!: ElementRef;
+  @ViewChild('Image') Image!: ElementRef;
   companysize: CompanySize[] = [];
   formValue: FormGroup;
   passwords: FormGroup;
@@ -90,7 +90,7 @@ export class AddNewCompanyComponent implements OnInit {
 
   onSubmit() {
     let userModel: IuserCompany = this.formValue.value as IuserCompany;
-    let logo = this.AdminImage.nativeElement.files[0];
+    let logo = this.Image.nativeElement.files[0];
     this.authService
       .SignUp(this.companyEmail?.value, this.password?.value)
       .then((data) => {
