@@ -10,18 +10,27 @@ import { AdminIsLoginGuard } from './Guards/admin-is-login.guard';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { JobsTableComponent } from './components/jobs-table/jobs-table.component';
 import { PendingJobsComponent } from './components/pending-jobs/pending-jobs.component';
-// canActivate: [AdminIsLoginGuard],
+import { AdminModule } from './components/admin/admin.module';
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LogInComponent },
   {
     path: 'Home',
     component: MainLayoutComponent,
+    canActivate: [AdminIsLoginGuard],
 
     children: [
       { path: 'admin', component: CompanyContactsComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'usertable', component: UserTableComponent },
       { path: 'addadmin', component: AddAdminComponent },
+      {
+        path: 'user',
+        loadChildren: () =>
+          import('src/app/components/admin/admin.module').then(
+            (m) => m.AdminModule
+          ),
+      },
       {
         path: 'jobpage',
         component: JobsPageComponent,
