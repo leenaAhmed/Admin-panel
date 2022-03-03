@@ -9,7 +9,7 @@ import {
   faArrowAltCircleRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { CompanyService } from 'src/app/Services/companyUser/company.service';
+import { CompanyService } from 'src/app/services/companyUser/company.service';
 import { IuserCompany } from 'src/app/model/iuser-company';
 
 @Component({

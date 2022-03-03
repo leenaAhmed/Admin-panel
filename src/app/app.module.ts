@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +25,7 @@ import { UserTableComponent } from './components/user-table/user-table.component
 import { FilterPipe } from './pipe/filter.pipe';
 
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
+import { DailogComponent } from './shared/dailog/dailog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +38,7 @@ import { AddAdminComponent } from './components/add-admin/add-admin.component';
     LogInComponent,
     UserTableComponent,
     AddAdminComponent,
+    DailogComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,8 @@ import { AddAdminComponent } from './components/add-admin/add-admin.component';
     AngularFirestoreModule,
     FormsModule,
     FontAwesomeModule,
+    MatDialogModule,
+    MatButtonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     NgxPaginationModule,

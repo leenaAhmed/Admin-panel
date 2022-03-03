@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IuserCompany } from 'src/app/model/iuser-company';
-import { CompanyService } from 'src/app/Services/companyUser/company.service';
-import {  faSearch} from '@fortawesome/free-solid-svg-icons';
+import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { DailogComponent } from 'src/app/shared/dailog/dailog.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-company-contacts',
   templateUrl: './company-contacts.component.html',
@@ -15,17 +17,24 @@ export class CompanyContactsComponent implements OnInit {
   tableSizes: any = [3, 6, 9, 12];
   searchText: string = '';
   message = '';
-  faSearch = faSearch ;
+  faSearch = faSearch;
 
-  constructor(private companyService: CompanyService) {}
+  constructor(
+    private companyService: CompanyService,
+    public dialog: MatDialog
+  ) {
+    console.log(this.companyUsers);
+  }
 
   ngOnInit(): void {
     this.fetchPosts();
     console.log(this.searchText);
+    console.log(this.companyUsers);
   }
   fetchPosts(): void {
     this.companyService.getCompanyUsers().subscribe((data: any) => {
       this.companyUsers = data.map((ele: any) => {
+        console.log(ele.payload.doc.data());
         return {
           id: ele.payload.doc.id,
           ...ele.payload.doc.data(),
@@ -42,14 +51,13 @@ export class CompanyContactsComponent implements OnInit {
     this.page = 1;
     this.fetchPosts();
   }
-  deleteuser(id: string) {
-    this.companyService
-      .deleteuser(id)
-      .then(() => {
-        this.message = 'The user company  delete successfully!';
-      })
-      .catch((err) => console.log(err));
-    console.log(id);
+  openDialog(id: string) {
+    const dialogRef = this.dialog.open(DailogComponent, {
+      data: { id: id },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
   // search(event: any) {
   //   this.searchText = (event.target as HTMLInputElement).value;

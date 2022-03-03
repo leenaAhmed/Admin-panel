@@ -7,4 +7,6 @@ export interface IuserCompany {
   companySize: string;
   logo: string;
   description: string;
+  fristName: string;
+  lastName: string;
 }

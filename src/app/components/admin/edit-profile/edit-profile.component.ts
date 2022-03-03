@@ -58,12 +58,6 @@ export class EditProfileComponent implements OnInit {
     this.authService.uploadImage(event.target.files[0]);
   }
   saveProfile() {}
-  previousStep() {
-    this.step = this.step - 1;
-  }
-  NextStep() {
-    this.step = this.step + 1;
-  }
 
   updateName(name: string) {
     this.authService.updateUserName(name).then(() => {

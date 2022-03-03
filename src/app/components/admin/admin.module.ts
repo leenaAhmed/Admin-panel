@@ -10,15 +10,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepperModule } from '@angular/material/stepper';
+import { AddNewCompanyComponent } from './add-new-company/add-new-company.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const routes: Routes = [
   { path: 'user/editProfile', redirectTo: '/', pathMatch: 'full' },
   { path: 'editProfile', component: EditProfileComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'addcompany', component: AddNewCompanyComponent },
 ];
 
 @NgModule({
-  declarations: [ProfileComponent, EditProfileComponent],
+  declarations: [
+    ProfileComponent,
+    EditProfileComponent,
+    AddNewCompanyComponent,
+  ],
   imports: [
     CommonModule,
     MatIconModule,
@@ -29,6 +38,9 @@ const routes: Routes = [
     MatInputModule,
     MatButtonModule,
     MatStepperModule,
+    NgSelectModule,
+    MatSelectModule,
+    MatSnackBarModule,
     RouterModule.forChild(routes),
   ],
 })

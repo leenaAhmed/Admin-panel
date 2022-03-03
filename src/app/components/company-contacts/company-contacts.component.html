@@ -4,9 +4,9 @@
         <div class="input-group ">
             <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="search">
             <span class="input-group-text">
-              <fa-icon [icon]="faSearch" class=""></fa-icon>
-              </span>
-          </div>
+                <fa-icon [icon]="faSearch" class=""></fa-icon>
+            </span>
+        </div>
     </div>
     <div class="card-body pb-0">
 
@@ -55,7 +55,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="text-right">
-                            <a class="btn btn-sm btn-danger" (click)="deleteuser(user.id)">
+                            <a class="btn btn-sm btn-danger" (click)="openDialog(user.id)">
                                 Delete User Account
                             </a>
                         </div>
