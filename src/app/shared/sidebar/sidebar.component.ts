@@ -18,6 +18,12 @@ export const ROUTES: any[] = [
     icon: ' content_paste',
     class: '',
   },
+  {
+    path: 'jobapplicationstable',
+    title: 'Job Applications',
+    icon: ' apps',
+    class: '',
+  },
 ];
 @Component({
   selector: 'app-sidebar',
@@ -38,7 +44,7 @@ export class SidebarComponent implements OnInit {
   }
   sidebarToggle() {
     this.isOpen = !this.isOpen;
-    this.FormIsOpen = false ;
+    this.FormIsOpen = false;
   }
 
   FormToggle() {

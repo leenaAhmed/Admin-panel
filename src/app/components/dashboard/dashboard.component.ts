@@ -93,7 +93,7 @@ export class DashboardComponent implements OnInit {
 
   GetTotalJobApplication() {
     let JobApplicationObserval =
-      this.JobsServ.GetTotalJobApplicationNumber().subscribe((data: any) => {
+      this.JobsServ.GetTotalJobApplication().subscribe((data: any) => {
         data.map((JobApp: any) => {
           this.JobAppList.push(JobApp);
         });

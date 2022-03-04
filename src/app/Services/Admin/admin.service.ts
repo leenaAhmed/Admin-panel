@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { filter, from, map, Observable, of, switchMap } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AdminAuthService } from '../auth/adminAuth.service';
+import { AdminAuthService } from '../../Services/auth/adminAuth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorage } from '@angular/fire/storage';
 

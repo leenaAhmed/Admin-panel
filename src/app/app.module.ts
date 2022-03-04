@@ -32,6 +32,7 @@ import { JobsTableComponent } from './components/jobs-table/jobs-table.component
 import { JobsPageComponent } from './components/jobs-page/jobs-page.component';
 import { PendingJobsComponent } from './components/pending-jobs/pending-jobs.component';
 import { ConvertToDatePipe } from './pipe/convert-to-date.pipe';
+import { JobApplicationComponent } from './components/job-application/job-application.component';
 import { ModelExitComponent } from './shared/model-exit/model-exit.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 @NgModule({
@@ -51,6 +52,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     PendingJobsComponent,
     ConvertToDatePipe,
     UserTableComponent,
+    JobApplicationComponent,
     ModelExitComponent,
     SpinnerComponent,
   ],
