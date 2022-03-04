@@ -9,8 +9,15 @@ import { Location } from '@angular/common';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Router } from '@angular/router';
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
+<<<<<<< HEAD
 import { AdminAuthService } from 'src/app/Services/auth/adminAuth.service';
 import { CompanyService } from 'src/app/Services/companyUser/company.service';
+=======
+import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
+import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { ModelExitComponent } from '../model-exit/model-exit.component';
+import { MatDialog } from '@angular/material/dialog';
+>>>>>>> 2ee3208ca90f4ea69ca60d3ffbd30b24cbfa342c
 
 @Component({
   selector: 'app-navbar',
@@ -34,7 +41,8 @@ export class NavbarComponent implements OnInit {
     private element: ElementRef,
     private router: Router,
     private companyService: CompanyService,
-    private AdminAuth: AdminAuthService
+    private AdminAuth: AdminAuthService,
+    private dialog: MatDialog
   ) {
     this.nativeElement = element.nativeElement;
     this.sidebarVisible = false;
@@ -120,6 +128,6 @@ export class NavbarComponent implements OnInit {
   }
 
   Logout() {
-    this.AdminAuth.Logout().then(() => this.router.navigate(['']));
+    const ref = this.dialog.open(ModelExitComponent);
   }
 }

@@ -31,7 +31,11 @@ import { JobsTableComponent } from './components/jobs-table/jobs-table.component
 import { JobsPageComponent } from './components/jobs-page/jobs-page.component';
 import { PendingJobsComponent } from './components/pending-jobs/pending-jobs.component';
 import { ConvertToDatePipe } from './pipe/convert-to-date.pipe';
+<<<<<<< HEAD
 import { JobApplicationComponent } from './components/job-application/job-application.component';
+=======
+import { ModelExitComponent } from './shared/model-exit/model-exit.component';
+>>>>>>> 2ee3208ca90f4ea69ca60d3ffbd30b24cbfa342c
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +53,11 @@ import { JobApplicationComponent } from './components/job-application/job-applic
     PendingJobsComponent,
     ConvertToDatePipe,
     UserTableComponent,
+<<<<<<< HEAD
     JobApplicationComponent,
+=======
+    ModelExitComponent,
+>>>>>>> 2ee3208ca90f4ea69ca60d3ffbd30b24cbfa342c
   ],
   imports: [
     BrowserModule,
