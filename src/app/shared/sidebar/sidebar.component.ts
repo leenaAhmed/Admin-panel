@@ -1,6 +1,6 @@
 import { IAdmin } from './../../Models/iadmin';
 import { Component, OnInit } from '@angular/core';
-import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
+import { AdminAuthService } from 'src/app/Services/auth/adminAuth.service';
 import { Iadmin } from 'src/app/model/iadmin';
 
 export const ROUTES: any[] = [
@@ -16,6 +16,12 @@ export const ROUTES: any[] = [
     path: 'jobpage/',
     title: 'Jobs',
     icon: ' content_paste',
+    class: '',
+  },
+  {
+    path: 'jobapplicationstable',
+    title: 'Job Applications',
+    icon: ' apps',
     class: '',
   },
 ];

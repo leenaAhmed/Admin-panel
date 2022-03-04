@@ -1,6 +1,6 @@
 import { IJob } from 'src/app/Models/ijob';
 import { IUser } from './../../Models/iuser';
-import { UsersService } from 'src/app/services/users/users.service';
+import { UsersService } from 'src/app/Services/users/users.service';
 import { Component, OnInit } from '@angular/core';
 import {
   faUser,
@@ -10,7 +10,7 @@ import {
   faArrowAltCircleRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { CompanyService } from 'src/app/Services/companyUser/company.service';
 import { IuserCompany } from 'src/app/model/iuser-company';
 import { JobsService } from 'src/app/Services/Jobs/jobs.service';
 
@@ -93,7 +93,7 @@ export class DashboardComponent implements OnInit {
 
   GetTotalJobApplication() {
     let JobApplicationObserval =
-      this.JobsServ.GetTotalJobApplicationNumber().subscribe((data: any) => {
+      this.JobsServ.GetTotalJobApplication().subscribe((data: any) => {
         data.map((JobApp: any) => {
           this.JobAppList.push(JobApp);
         });

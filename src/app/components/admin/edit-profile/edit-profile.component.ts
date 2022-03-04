@@ -9,7 +9,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
+import { AdminAuthService } from 'src/app/Services/auth/adminAuth.service';
 import { Iadmin } from 'src/app/model/iadmin';
 @Component({
   selector: 'app-edit-profile',

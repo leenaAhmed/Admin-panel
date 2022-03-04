@@ -11,6 +11,7 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { JobsTableComponent } from './components/jobs-table/jobs-table.component';
 import { PendingJobsComponent } from './components/pending-jobs/pending-jobs.component';
 import { AdminModule } from './components/admin/admin.module';
+import { JobApplicationComponent } from './components/job-application/job-application.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LogInComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'usertable', component: UserTableComponent },
       { path: 'addadmin', component: AddAdminComponent },
+      { path: 'jobapplicationstable', component: JobApplicationComponent },
       {
         path: 'user',
         loadChildren: () =>

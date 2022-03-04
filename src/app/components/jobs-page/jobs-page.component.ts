@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IuserCompany } from 'src/app/model/iuser-company';
-import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { CompanyService } from 'src/app/Services/companyUser/company.service';
 import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { CompanyJobsService } from 'src/app/Services/Jobs/company-jobs.service';
 

@@ -32,11 +32,12 @@ export class JobsService {
   GetTotalJobsNumber() {
     return this.FireBase.collectionGroup('jobs').snapshotChanges();
   }
-  GetTotalJobApplicationNumber() {
-    return this.FireBase.collectionGroup('applicants').snapshotChanges();
+  GetTotalJobApplication() {
+    return this.FireBase.collectionGroup('jobApplication').snapshotChanges();
   }
 
-  GetAcceptedJobs() {
+  GetJobs() {
     return this.FireBase.collectionGroup('jobs').snapshotChanges();
   }
+
 }

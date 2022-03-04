@@ -9,8 +9,8 @@ import { Location } from '@angular/common';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Router } from '@angular/router';
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
-import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
-import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { AdminAuthService } from 'src/app/Services/auth/adminAuth.service';
+import { CompanyService } from 'src/app/Services/companyUser/company.service';
 
 @Component({
   selector: 'app-navbar',
