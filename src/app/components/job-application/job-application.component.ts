@@ -4,12 +4,12 @@ import { IJobApplication } from './../../Models/ijob-application';
 import { Component, OnInit } from '@angular/core';
 import { IJob } from './../../Models/ijob';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { JobsService } from 'src/app/services/Jobs/jobs.service';
+import { JobsService } from 'src/app/Services/Jobs/jobs.service';
 import { Subscription } from 'rxjs';
-import { CompanyJobsService } from 'src/app/services/Jobs/company-jobs.service';
+import { CompanyJobsService } from 'src/app/Services/Jobs/company-jobs.service';
 import { IJobApplicationNames } from 'src/app/Models/ijob-application-names';
-import { CompanyService } from 'src/app/services/companyUser/company.service';
-import { UsersService } from 'src/app/services/users/users.service';
+import { CompanyService } from 'src/app/Services/companyUser/company.service';
+import { UsersService } from 'src/app/Services/users/users.service';
 
 @Component({
   selector: 'app-job-application',

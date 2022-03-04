@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
+import { AdminAuthService } from 'src/app/Services/auth/adminAuth.service';
 
 @Component({
   selector: 'app-model-exit',

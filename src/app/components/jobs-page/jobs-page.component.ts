@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IuserCompany } from 'src/app/model/iuser-company';
-import { CompanyService } from 'src/app/services/companyUser/company.service';
+import { CompanyService } from 'src/app/Services/companyUser/company.service';
 import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { CompanyJobsService } from 'src/app/services/Jobs/company-jobs.service';
+import { CompanyJobsService } from 'src/app/Services/Jobs/company-jobs.service';
 
 @Component({
   selector: 'app-jobs-page',
@@ -14,9 +14,9 @@ export class JobsPageComponent implements OnInit {
   searchText: string = '';
   faPlus = faPlus;
   faSearch = faSearch;
-  page: number = 1;
-  count: number = 0;
-  tableSize: number = 5;
+  pageC: number = 1;
+  countC: number = 0;
+  tableSizeC: number = 5;
   CompanyId: string = '';
   Clicked: boolean = false;
   timeout: boolean = true;
