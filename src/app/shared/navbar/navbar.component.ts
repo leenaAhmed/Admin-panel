@@ -9,15 +9,10 @@ import { Location } from '@angular/common';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Router } from '@angular/router';
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
-<<<<<<< HEAD
 import { AdminAuthService } from 'src/app/Services/auth/adminAuth.service';
 import { CompanyService } from 'src/app/Services/companyUser/company.service';
-=======
-import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
-import { CompanyService } from 'src/app/services/companyUser/company.service';
 import { ModelExitComponent } from '../model-exit/model-exit.component';
 import { MatDialog } from '@angular/material/dialog';
->>>>>>> 2ee3208ca90f4ea69ca60d3ffbd30b24cbfa342c
 
 @Component({
   selector: 'app-navbar',
