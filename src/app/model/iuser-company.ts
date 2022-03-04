@@ -1,7 +1,7 @@
 export interface IuserCompany {
   id: string;
   companyName: string;
-  companyIndustry: string;
+  companyIndustry: Array<string>;
   aboutCompany: string;
   companyEmail: string;
   companySize: string;

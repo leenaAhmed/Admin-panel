@@ -20,7 +20,8 @@
               let i = index">
                 <div class="card bg-light d-flex flex-fill">
                     <div class="card-header text-muted border-bottom-0">
-                        {{user.companyIndustry}}
+                        {{ user.companyIndustry}}
+
 
                     </div>
                     <div class="card-body pt-0">
@@ -40,7 +41,7 @@
                                             <span class="fa-li">
                                                 <mat-icon> email</mat-icon>
                                             </span>
-                                            <a class="text-muted" href=`mailto:${user.companyEmail}`>
+                                            <a class="text-muted" href="mailto:{{user.companyEmail}}">
                                                 {{user.companyEmail}}</a>
                                         </li>
 
@@ -50,7 +51,7 @@
                             </div>
                             <div class="col-5 text-center">
                                 <img [src]="user.logo == ''? '../../../assets/Images/download.png' : user.logo"
-                                    alt="user-avatar" class="img-circle img-fluid">
+                                    alt="company-avatar" class="img-circle img-fluid">
                             </div>
                         </div>
                     </div>

@@ -124,10 +124,12 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6 mt-4">
-                            <ng-select class="custom " [items]="companyIndustry" bindLabel="name"
-                                placeholder="Company industry - (max. 3) " appendTo="body"
-                                formControlName="companyIndustry" [multiple]="true" [(ngModel)]="selected" required>
+                            <ng-select [(ngModel)]="selected" [multiple]="true"
+                                placeholder="Company industry - (max. 3) " required>
+                                <ng-option *ngFor="let company of companyIndustry" [value]="company.id">{{company.name}}
+                                </ng-option>
                             </ng-select>
+
                             <small class="text-danger"
                                 *ngIf="industry?.errors?.['required'] && industry?.touched">industry</small>
                             <small *ngIf="industry?.errors?.['maxLength'] && industry?.touched"> Please select between 1
@@ -164,15 +166,14 @@
                     </div>
                 </div>
                 <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
-                <button mat-stroked-button *ngIf="step !== 1 " (click)="previousStep()"
-                    class="text-light me-4 mt-5">previous</button>
+                <small></small>
+                <a mat-stroked-button *ngIf="step !== 1 " (click)="previousStep()"
+                    class="text-light me-4 mt-5">previous</a>
 
-                <button mat-stroked-button class=" me-4 mt-3" *ngIf="step !== 3"
-                    [disabled]="password?.errors || confirmPassword?.errors || fristName?.errors || lastName?.errors|| companyEmail?.errors"
-                    (click)="NextStep()">Next</button>
+                <a mat-stroked-button class=" me-4 mt-3" *ngIf="step !== 3" (click)="NextStep()">Next</a>
 
 
-                <button [disabled]="formValue.invalid || passwords.invalid" type *ngIf="step == 3" type="submit"
+                <button [disabled]="formValue.invalid" type *ngIf="step == 3" type="submit"
                     class="btn btn-primary">Submit</button>
 
             </form>

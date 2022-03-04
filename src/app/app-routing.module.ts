@@ -11,13 +11,14 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { JobsTableComponent } from './components/jobs-table/jobs-table.component';
 import { PendingJobsComponent } from './components/pending-jobs/pending-jobs.component';
 import { AdminModule } from './components/admin/admin.module';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LogInComponent },
   {
     path: 'Home',
     component: MainLayoutComponent,
-    canActivate: [AdminIsLoginGuard],
+    // canActivate: [AdminIsLoginGuard],
 
     children: [
       { path: 'admin', component: CompanyContactsComponent },
@@ -35,7 +36,11 @@ const routes: Routes = [
         path: 'jobpage',
         component: JobsPageComponent,
         children: [
-          { path: '', redirectTo: '/Home/jobpage/jobtable', pathMatch: 'full' },
+          { path: '', redirectTo: '/Home/jobpage/spinner', pathMatch: 'full' },
+          {
+            path: 'spinner',
+            component: SpinnerComponent,
+          },
           { path: 'jobtable', component: JobsTableComponent },
           { path: 'pendingjobtable', component: PendingJobsComponent },
         ],

@@ -14,7 +14,11 @@ import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
 import { IuserCompany } from 'src/app/model/iuser-company';
 import { CompanyService } from 'src/app/services/companyUser/company.service';
 interface CompanySize {
-  value: string;
+  size: string;
+}
+interface CompanyIndustry {
+  id: string;
+  name: string;
 }
 @Component({
   selector: 'app-add-new-company',
@@ -23,13 +27,13 @@ interface CompanySize {
 })
 export class AddNewCompanyComponent implements OnInit {
   @ViewChild('Image') Image!: ElementRef;
-  companysize: any[] = [];
+  companysize: CompanySize[] = [];
   formValue: FormGroup;
   passwords: FormGroup;
   errorMessage: string = '';
   loading = false;
   submitted = false;
-  companyIndustry: any[] = [];
+  companyIndustry: CompanyIndustry[] = [];
   selected: any[] = [];
   step: any = 1;
   hide = true;
@@ -81,7 +85,13 @@ export class AddNewCompanyComponent implements OnInit {
 
   ngOnInit(): void {
     this.companyService.getcompanyIndustry().subscribe((industry: any) => {
-      this.companyIndustry = industry;
+      this.companyIndustry = industry.map((item: any) => {
+        console.log(item.payload.doc.data());
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data(),
+        };
+      });
     });
     this.companyService.getcompanySize().subscribe((sizes: any) => {
       this.companysize = sizes.map((size: any) => {

@@ -65,8 +65,9 @@ export class EditProfileComponent implements OnInit {
     });
   }
   updateEmail(email: string) {
+    console.log('update email', email);
     this.authService.updateUserEmail(email).then(() => {
-      alert('email update');
+      alert('name update');
     });
   }
 }

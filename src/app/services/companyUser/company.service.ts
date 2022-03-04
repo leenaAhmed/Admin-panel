@@ -19,7 +19,7 @@ export class CompanyService {
     return this.firestore.collection('company').snapshotChanges();
   }
   getcompanyIndustry() {
-    return this.firestore.collection('companyIndustry').valueChanges();
+    return this.firestore.collection('companyIndustry').snapshotChanges();
   }
   getcompanySize() {
     return this.firestore.collection('companySize').snapshotChanges();

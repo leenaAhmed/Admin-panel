@@ -19,6 +19,7 @@ export class JobsPageComponent implements OnInit {
   tableSize: number = 5;
   CompanyId: string = '';
   Clicked: boolean = false;
+  timeout: boolean = true;
   constructor(
     private CompanyService: CompanyService,
     private CompanyIdServ: CompanyJobsService
@@ -39,6 +40,9 @@ export class JobsPageComponent implements OnInit {
   }
 
   SendCompanyId(Id: string) {
+    setTimeout(() => {
+      this.timeout = false;
+    }, 1000);
     this.CompanyIdServ.CompanyId = Id;
     this.Clicked = true;
   }

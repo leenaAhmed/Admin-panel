@@ -11,7 +11,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 })
 export class AdminAuthService {
   AdminIsLogin: Observable<firebase.User | null>;
-  email: any;
+  useremail: any;
   userId: any;
   private newuser = firebase.auth().currentUser;
 
@@ -25,7 +25,7 @@ export class AdminAuthService {
     this.AdminIsLogin = FireAuth.user;
     this.AdminIsLogin.subscribe((data) => {
       this.userId = data?.uid;
-      console.log(this.userId);
+      this.useremail = data;
     });
     this.FireAuth.onAuthStateChanged(async (user) => {
       if (user) {
@@ -62,23 +62,17 @@ export class AdminAuthService {
   updateUserName(name: string) {
     return this.firestore.doc<Iadmin>(`admin/${this.userId}`).update({ name });
   }
-  // updateUserEmail(email: string) {
-  //   return
-  // }
-  updateUserEmail(email: any) {
-    return this.email?.updateEmail(email).then(() => {
-      this.firestore.doc<any>(`admin/${this.userId}`).update({ email });
-    });
 
-    // this.user.updateEmail(this.email)
-    //   .then(() => {
-    //     this.email = '';
-    //      this.error = '';
-    //   })
-    //   .catch(err => {
-    //     console.log(` failed ${err}`);
-    //     this.error = err.message;
-    //   });
+  updateUserEmail(email: string) {
+    console.log(`update servvice`, email);
+    return this.useremail
+      .updateEmail(email)
+      .then(() => {
+        this.firestore.doc<Iadmin>(`admin/${this.userId}`).update({ email });
+      })
+      .catch((err: any) => {
+        console.log(` failed ${err}`);
+      });
   }
   uploadImage(image: File) {
     return new Promise((resolve, reject) => {
@@ -95,5 +89,4 @@ export class AdminAuthService {
       });
     });
   }
-  updateEmail(newEmail: string, password: string) {}
 }

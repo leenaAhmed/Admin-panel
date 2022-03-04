@@ -13,7 +13,7 @@ export class CompanyContactsComponent implements OnInit {
   companyUsers: IuserCompany[] = [];
   page: number = 1;
   count: number = 0;
-  tableSize: number = 3;
+  tableSize: number = 6;
   tableSizes: any = [3, 6, 9, 12];
   searchText: string = '';
   message = '';

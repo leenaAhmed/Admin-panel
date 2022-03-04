@@ -1,5 +1,11 @@
 import { IJob } from './../../Models/ijob';
-import { Component, OnInit, DoCheck } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  DoCheck,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { JobsService } from 'src/app/services/Jobs/jobs.service';
 import { IuserCompany } from 'src/app/model/iuser-company';
@@ -12,7 +18,7 @@ import { CompanyJobsService } from 'src/app/services/Jobs/company-jobs.service';
   templateUrl: './jobs-table.component.html',
   styleUrls: ['./jobs-table.component.scss'],
 })
-export class JobsTableComponent implements OnInit {
+export class JobsTableComponent implements OnInit, OnChanges {
   searchText: string = '';
   faTrash = faTrash;
   faSearch = faSearch;
@@ -26,11 +32,16 @@ export class JobsTableComponent implements OnInit {
   MessageShow: boolean = false;
   DeleteMessage: string = '';
   SubScriptionArray: Subscription[] = [];
-
+  timeout: boolean = false;
   constructor(
     private JobsServ: JobsService,
     private CompanyIdServ: CompanyJobsService
   ) {}
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('change');
+    // this.CompanyId = this.CompanyIdServ.CompanyId;
+    // this.GetJobs(this.CompanyId);
+  }
 
   ngOnInit(): void {
     this.CompanyId = this.CompanyIdServ.CompanyId;

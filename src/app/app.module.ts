@@ -24,6 +24,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LogInComponent } from './components/log-in/log-in.component';
 import { UserTableComponent } from './components/user-table/user-table.component';
 import { FilterPipe } from './pipe/filter.pipe';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AddAdminComponent } from './components/add-admin/add-admin.component';
 import { DailogComponent } from './shared/dailog/dailog.component';
@@ -32,6 +33,7 @@ import { JobsPageComponent } from './components/jobs-page/jobs-page.component';
 import { PendingJobsComponent } from './components/pending-jobs/pending-jobs.component';
 import { ConvertToDatePipe } from './pipe/convert-to-date.pipe';
 import { ModelExitComponent } from './shared/model-exit/model-exit.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,12 +52,14 @@ import { ModelExitComponent } from './shared/model-exit/model-exit.component';
     ConvertToDatePipe,
     UserTableComponent,
     ModelExitComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatProgressSpinnerModule,
     MatIconModule,
     AngularFirestoreModule,
     FormsModule,
