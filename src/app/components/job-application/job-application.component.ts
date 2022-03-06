@@ -108,7 +108,7 @@ export class JobApplicationComponent implements OnInit {
             });
             for (let j = 0; j < this.UserList.length; j++) {
               if (this.UserList[j].id == this.JobsAppList[i].userId) {
-                this.UserName = this.UserList[j].name;
+                this.UserName = this.UserList[j].firstName+ " "+ this.UserList[j].lastName;
                 this.JobAppDetailsList[i].UserName = this.UserName;
               }
             }
