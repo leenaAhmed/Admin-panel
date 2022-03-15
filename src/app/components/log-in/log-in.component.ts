@@ -40,7 +40,7 @@ export class LogInComponent implements OnInit {
         this.ErrorShow = false;
       })
       .catch((err) => {
-        this.ErrorMessage = 'Email or Password incorrect ';
+        this.ErrorMessage = err;
         setTimeout(() => {
           this.ErrorShow = true;
         }, 1000);
