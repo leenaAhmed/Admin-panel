@@ -8,8 +8,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
-import { AdminService } from 'src/app/services/Admin/admin.service';
+import { AdminAuthService } from 'src/app/Services/auth/adminAuth.service';
+import { AdminService } from 'src/app/Services/Admin/admin.service';
 
 @Component({
   selector: 'app-add-admin',

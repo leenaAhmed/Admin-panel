@@ -28,9 +28,9 @@
                       | filter: searchText
                       | paginate
                         : {
-                            itemsPerPage: tableSize,
-                            currentPage: page,
-                            totalItems: count
+                            itemsPerPage: tableSizeC,
+                            currentPage: pageC,
+                            totalItems: countC
                           };
                     let i = index
                   ">
@@ -47,7 +47,7 @@
             </table>
 
             <div class="card-footer bg-white">
-              <pagination-controls previousLabel="" nextLabel="" (pageChange)="page = $event">
+              <pagination-controls previousLabel="" nextLabel="" (pageChange)="pageC = $event">
               </pagination-controls>
             </div>
           </div>

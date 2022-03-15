@@ -14,6 +14,6 @@ export class SpinnerComponent implements OnInit {
     setTimeout(() => {
       this.timeout = true;
       this.router.navigate(['/Home/jobpage/jobtable']);
-    }, 2000);
+    }, 3000);
   }
 }
