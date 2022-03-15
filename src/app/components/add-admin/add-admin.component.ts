@@ -39,7 +39,7 @@ export class AddAdminComponent implements OnInit {
           '',
           [
             Validators.required,
-            Validators.pattern('[a-zA-Z0-9]{4,}(@)[a-zA-Z0-9]{3,}(?!s)(.com)'),
+            Validators.pattern('[a-zA-Z0-9]{4,}(@admin)(?!s)(.com)'),
           ],
         ],
         password: [
