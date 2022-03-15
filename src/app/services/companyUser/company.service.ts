@@ -27,6 +27,9 @@ export class CompanyService {
   deleteuser(id: string) {
     return this.firestore.collection('company').doc(id).delete();
   }
+  getSingleCompany(id: any) {
+    return this.firestore.collection('company').doc(id).snapshotChanges();
+  }
   creatUser(id: string | undefined, ImageFile: File, user: IuserCompany) {
     let ImagePath = this.storage.ref(`company/${ImageFile.name}`);
     return new Promise<void>((resolve, reject) => {

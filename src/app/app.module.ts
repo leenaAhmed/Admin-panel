@@ -35,6 +35,8 @@ import { ConvertToDatePipe } from './pipe/convert-to-date.pipe';
 import { JobApplicationComponent } from './components/job-application/job-application.component';
 import { ModelExitComponent } from './shared/model-exit/model-exit.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SingleCompanyComponent } from './components/single-company/single-company.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +57,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     JobApplicationComponent,
     ModelExitComponent,
     SpinnerComponent,
+    SingleCompanyComponent,
   ],
   imports: [
     BrowserModule,

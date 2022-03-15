@@ -123,17 +123,19 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 mt-4">
-                            <ng-select [(ngModel)]="selected" [multiple]="true"
-                                placeholder="Company industry - (max. 3) " required>
-                                <ng-option *ngFor="let company of companyIndustry" [value]="company.id">{{company.name}}
-                                </ng-option>
-                            </ng-select>
-
+                        <div class="col-lg-6 ">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Company industry</mat-label>
+                                <mat-select required formControlName="companyIndustry">
+                                    <mat-option *ngFor="let company of companyIndustry" [value]="company.id">
+                                        {{company.name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
                             <small class="text-danger"
                                 *ngIf="industry?.errors?.['required'] && industry?.touched">industry</small>
                             <small *ngIf="industry?.errors?.['maxLength'] && industry?.touched"> Please select between 1
-                                and 3 related industries </small>
+                                related industries </small>
                         </div>
                         <div class="col-lg-6">
                             <mat-form-field appearance="fill">
@@ -158,6 +160,10 @@
                                 <mat-label> About us</mat-label>
                                 <textarea matInput formControlName="aboutCompany" required></textarea>
                             </mat-form-field>
+                            <small class="text-danger"
+                                *ngIf="aboutcompany?.errors?.['required'] && aboutcompany?.touched"> about company is
+                                required.
+                            </small>
                         </div>
                         <div class="col-md-6 mb-5">
                             <input type="file" value="primary" class="form-control mt-3" name="image"

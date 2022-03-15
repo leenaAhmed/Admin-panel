@@ -27,12 +27,11 @@
                     <div class="card-body pt-0">
                         <div class="row">
                             <div class="col-7">
-                                <h2 class="card-title">
-                                    {{ user.companyName }}</h2>
+                                <a class="card-title text-dark mb-2 fs-5 text-decoration-none text-capitalize"
+                                    [routerLink]="['company', user.id]">
+                                    {{ user.companyName }}</a>
                                 <div class=" text-muted">
-                                    <p class=" text-sm">
-                                        <b>About: </b> {{ user.aboutCompany }}
-                                    </p>
+
                                     <p class="text-sm">
                                         <b>company size: </b>{{user.companySize}}
                                     </p>

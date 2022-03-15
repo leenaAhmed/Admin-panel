@@ -13,20 +13,25 @@ import { PendingJobsComponent } from './components/pending-jobs/pending-jobs.com
 import { AdminModule } from './components/admin/admin.module';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { JobApplicationComponent } from './components/job-application/job-application.component';
+import { SingleCompanyComponent } from './components/single-company/single-company.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LogInComponent },
   {
     path: 'Home',
     component: MainLayoutComponent,
-    // canActivate: [AdminIsLoginGuard],
 
     children: [
       { path: 'admin', component: CompanyContactsComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'usertable', component: UserTableComponent },
       { path: 'addadmin', component: AddAdminComponent },
-      { path: 'jobapplicationstable', component: JobApplicationComponent },
+      { path: 'admin/company/:companyId', component: SingleCompanyComponent },
+      {
+        path: 'jobapplicationstable',
+        component: JobApplicationComponent,
+        canActivate: [AdminIsLoginGuard],
+      },
       {
         path: 'user',
         loadChildren: () =>
