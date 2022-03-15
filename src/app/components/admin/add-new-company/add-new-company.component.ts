@@ -60,12 +60,7 @@ export class AddNewCompanyComponent implements OnInit {
           '',
           [Validators.required, Validators.pattern(this.emailPattern)],
         ],
-        companyIndustry: formBuilder.array([
-          this.formBuilder.control('', [
-            Validators.required,
-            Validators.maxLength(3),
-          ]),
-        ]),
+        companyIndustry: ['', Validators.required],
         jobTitle: [null, Validators.required],
         companyName: [null, Validators.required],
         companySize: [null, Validators.required],
@@ -75,6 +70,7 @@ export class AddNewCompanyComponent implements OnInit {
           [Validators.required, Validators.pattern('[a-z0-9A-Z]{6,}')],
         ],
         confirmPassword: ['', Validators.required],
+
         image: ['', Validators.required],
       },
       { validators: mustMatch }
@@ -150,6 +146,9 @@ export class AddNewCompanyComponent implements OnInit {
     return this.formValue.get('companyName');
   }
 
+  get aboutcompany() {
+    return this.formValue.get('aboutCompany');
+  }
   get password() {
     return this.formValue.get('password');
   }

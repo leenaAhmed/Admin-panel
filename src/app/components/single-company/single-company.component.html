@@ -1,0 +1,46 @@
+<!-- <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6 bg-light">
+            <img [src]="companyUsers.logo" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
+                height="500" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">{{companyUsers.companyIndustry}}</h1>
+            <p class="lead">{{companyUsers.aboutCompany}}</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+            </div>
+        </div>
+
+    </div>
+</div> -->
+
+<div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <h1 class="display-4 fw-bold lh-1 text-capitalize">{{companyUsers.companyName}}</h1>
+            <p class="lead">{{companyUsers.aboutCompany}}</p>
+            <div class="">
+                <p>
+                    <b>company size: </b>{{companyUsers.companySize}} employees
+
+                </p>
+                <div>
+                    <b>company Industry: </b>
+                    <a class="text-muted" href="mailto:{{companyUsers.companyEmail}}">
+                        {{companyUsers.companyEmail}}</a>
+                </div>
+                <div>
+                    <b>company Industry: </b>{{companyUsers.companyIndustry}}
+                </div>
+                <div>
+                    <b>company Country :</b> {{companyUsers.companyCountry}}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+            <img class="rounded-lg-3" [src]="companyUsers.logo" alt="" width="395">
+        </div>
+    </div>
+</div>

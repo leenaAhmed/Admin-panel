@@ -20,6 +20,7 @@ export class JobsService {
   }
 
   DeleteJob(JobId: string, CompanyId: string) {
+    
     return this.FireBase.doc(`company/${CompanyId}/jobs/${JobId}`).delete();
   }
 
