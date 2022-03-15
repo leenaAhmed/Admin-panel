@@ -30,10 +30,10 @@ const routes: Routes = [
       {
         path: 'jobapplicationstable',
         component: JobApplicationComponent,
-        canActivate: [AdminIsLoginGuard],
       },
       {
         path: 'user',
+        canActivate: [AdminIsLoginGuard],
         loadChildren: () =>
           import('src/app/components/admin/admin.module').then(
             (m) => m.AdminModule

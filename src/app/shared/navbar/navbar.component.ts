@@ -64,7 +64,7 @@ export class NavbarComponent implements OnInit {
       // console.log(titlee);
       // console.log(this.listTitles[item]);
     }
-    return 'Dashboard';
+    return 'Admin Panal';
   }
   sidebarToggle() {
     if (this.sidebarVisible === false) {
