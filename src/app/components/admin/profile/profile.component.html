@@ -27,34 +27,34 @@
                 </div> -->
         </div>
     </div>
-</div>
-<div class="col-lg-6 col-md-12 mt-3">
+    <div class="col-lg col-md-12 mt-3">
 
 
-    <div class="card">
-        <div class="card-header">
-            <h4 class="card-title">Team Members</h4>
-        </div>
-        <div class="card-body">
-            <ul class="list-unstyled team-members">
-                <li *ngFor="let member of adminList">
-                    <div class="row">
-                        <div class="col-md-2 col-2">
-                            <div class="avatar"><img alt="Circle Image" class="img-circle img-no-padding img-responsive"
-                                    [src]="member.imageURL">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title text-dark">Team Members</h4>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled team-members">
+                    <li *ngFor="let member of adminList">
+                        <div class="row">
+                            <div class="col-md-2 col-2">
+                                <div class="avatar"><img alt="Circle Image"
+                                        class="img-circle img-no-padding img-responsive" [src]="member.imageURL">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-7 col-7 text-dark"> {{member.name}}
+                            <div class="col-md-7 col-7 text-dark"> {{member.name}}
 
+                            </div>
+                            <div class="col-md-3 col-3 text-right"><a class="text-muted" href="mailto:{{member.email}}"
+                                    class="btn btn-sm btn-outline-success btn-round btn-icon">
+                                    <mat-icon> email</mat-icon>
+                                </a></div>
                         </div>
-                        <div class="col-md-3 col-3 text-right"><a class="text-muted" href="mailto:{{member.email}}"
-                                class="btn btn-sm btn-outline-success btn-round btn-icon">
-                                <mat-icon> email</mat-icon>
-                            </a></div>
-                    </div>
-                </li>
+                    </li>
 
-            </ul>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

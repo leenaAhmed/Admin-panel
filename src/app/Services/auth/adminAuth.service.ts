@@ -45,7 +45,7 @@ export class AdminAuthService {
     });
   }
   getUser() {
-    return this.firestore.doc<Iadmin>(`admin/${this.adminId}`).valueChanges();
+    return this.user;
   }
 
   Login(Email: string, Password: string) {

@@ -46,12 +46,12 @@
                   <td>{{ user.email }}</td>
                   <td>
                     <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#DeleteProduct"
-                      aria-label="Close" (click)="DeleteUserId = user.id">
+                      aria-label="Close" (click)="Deleteuser(user.id) ">
                       <fa-icon [icon]="faTrash" class="mt-2 me-2"></fa-icon>
                       Delete
                     </a>
 
-                    <div class="modal fade" id="DeleteProduct" data-bs-backdrop="static" data-bs-keyboard="false"
+                    <!-- <div class="modal fade" id="DeleteProduct" data-bs-backdrop="static" data-bs-keyboard="false"
                       tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -76,7 +76,7 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </td>
                 </tr>
               </tbody>

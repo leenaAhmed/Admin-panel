@@ -39,6 +39,7 @@ import { SingleCompanyComponent } from './components/single-company/single-compa
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
+import { JobmodelComponent } from './shared/jobmodel/jobmodel.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { MatMenuModule } from '@angular/material/menu';
     ModelExitComponent,
     SpinnerComponent,
     SingleCompanyComponent,
+    JobmodelComponent,
   ],
   imports: [
     BrowserModule,

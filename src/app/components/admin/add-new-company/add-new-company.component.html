@@ -2,10 +2,10 @@
     <div class="row">
         <div class="col-9 offset-md-2">
 
-            <h2 class="text-center mt-5 text-primary"> Add Company </h2>
+            <h2 class="text-center mt-5 text-primary"> Add New Company </h2>
             <form [formGroup]="formValue " (ngSubmit)="onSubmit()">
                 <div *ngIf="step == 1">
-                    <h2> personal details</h2>
+                    <h2> Personal details</h2>
                     <div class="row">
                         <div class="col-lg-4">
                             <mat-form-field appearance="fill">
@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div *ngIf="step == 2">
-                    <h2>company information</h2>
+                    <h2>Company information</h2>
                     <div class="row">
                         <div class="col-lg-6">
                             <mat-form-field appearance="fill">
