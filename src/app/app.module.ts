@@ -36,6 +36,9 @@ import { JobApplicationComponent } from './components/job-application/job-applic
 import { ModelExitComponent } from './shared/model-exit/model-exit.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SingleCompanyComponent } from './components/single-company/single-company.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -75,6 +78,9 @@ import { SingleCompanyComponent } from './components/single-company/single-compa
     AngularFireAuthModule,
     NgxPaginationModule,
     AngularFireStorageModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

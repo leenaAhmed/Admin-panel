@@ -1,7 +1,7 @@
 export interface IuserCompany {
   id: string;
   companyName: string;
-  companyIndustry: Array<string>;
+  companyIndustry: string;
   aboutCompany: string;
   companyEmail: string;
   companySize: string;
@@ -9,4 +9,9 @@ export interface IuserCompany {
   description: string;
   fristName: string;
   lastName: string;
+  empFirstName: string;
+  empLastName: string;
+  empTitle: string;
+  mobileNo: string;
+  companyCountry: string;
 }

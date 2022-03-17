@@ -4,7 +4,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { CompanyService } from 'src/app/Services/companyUser/company.service';
+import { CompanyService } from 'src/app/services/companyUser/company.service';
 
 @Component({
   selector: 'app-dailog',

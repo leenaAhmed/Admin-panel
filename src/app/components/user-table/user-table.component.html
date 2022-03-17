@@ -2,26 +2,17 @@
   <div class="container-fluid">
     <div class="row">
       <div class="d-flex justify-content-center">
-        <div
-          class="alert alert-success alert-dismissible fade show mt-3 col-md-5"
-          role="alert"
-          *ngIf="MessageShow"
-        >
+        <div class="alert alert-success alert-dismissible fade show mt-3 col-md-5" role="alert" *ngIf="MessageShow">
           <strong> {{ DeleteMessage }}</strong>
         </div>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-10 col-sm-12">
         <div class="card">
           <div class="card-header bg-white">
             <h3 class="card-title pt-2 fs-4 ps-4">Users Table</h3>
             <div class="card-header border-bottom-0">
               <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  [(ngModel)]="searchText"
-                  placeholder="search"
-                />
+                <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="search" />
                 <span class="input-group-text">
                   <fa-icon [icon]="faSearch"></fa-icon>
                 </span>
@@ -39,8 +30,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  *ngFor="
+                <tr *ngFor="
                     let user of UsersList
                       | filter: searchText
                       | paginate
@@ -50,68 +40,37 @@
                             totalItems: count
                           };
                     let i = index
-                  "
-                >
+                  ">
                   <td>{{ i + 1 }}</td>
                   <td>{{ user?.firstName }} {{user?.lastName}}</td>
                   <td>{{ user.email }}</td>
                   <td>
-                    <a
-                      class="btn btn-danger btn-sm"
-                      data-bs-toggle="modal"
-                      data-bs-target="#DeleteProduct"
-                      aria-label="Close"
-                      (click)="DeleteUserId = user.id"
-                    >
+                    <a class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#DeleteProduct"
+                      aria-label="Close" (click)="DeleteUserId = user.id">
                       <fa-icon [icon]="faTrash" class="mt-2 me-2"></fa-icon>
                       Delete
                     </a>
 
-                    <div
-                      class="modal fade"
-                      id="DeleteProduct"
-                      data-bs-backdrop="static"
-                      data-bs-keyboard="false"
-                      tabindex="-1"
-                      aria-labelledby="staticBackdropLabel"
-                      aria-hidden="true"
-                    >
+                    <div class="modal fade" id="DeleteProduct" data-bs-backdrop="static" data-bs-keyboard="false"
+                      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h3
-                              class="modal-title text-danger"
-                              id="staticBackdropLabel"
-                            >
+                            <h3 class="modal-title text-danger" id="staticBackdropLabel">
                               <strong>Warning!</strong>
                             </h3>
-                            <button
-                              type="button"
-                              class="btn-close"
-                              data-bs-dismiss="modal"
-                              aria-label="Close"
-                            ></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            <strong
-                              >Are you sure you want to delete this user
-                              ?</strong
-                            >
+                            <strong>Are you sure you want to delete this user
+                              ?</strong>
                           </div>
                           <div class="modal-footer">
-                            <button
-                              type="button"
-                              class="btn btn-success"
-                              data-bs-dismiss="modal"
-                            >
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">
                               No
                             </button>
-                            <button
-                              type="button"
-                              class="btn btn-danger"
-                              data-bs-dismiss="modal"
-                              (click)="Deleteuser(DeleteUserId)"
-                            >
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                              (click)="Deleteuser(DeleteUserId)">
                               yes..delete
                             </button>
                           </div>
@@ -123,11 +82,7 @@
               </tbody>
             </table>
             <div class="card-footer bg-white">
-              <pagination-controls
-                previousLabel=""
-                nextLabel=""
-                (pageChange)="page = $event"
-              >
+              <pagination-controls previousLabel="" nextLabel="" (pageChange)="page = $event">
               </pagination-controls>
             </div>
           </div>

@@ -9,7 +9,9 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { StepperOrientation } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AdminAuthService } from 'src/app/Services/auth/adminAuth.service';
+import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { Iadmin } from 'src/app/model/iadmin';
 @Component({
   selector: 'app-edit-profile',
@@ -36,7 +38,8 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private authService: AdminAuthService,
     private _formBuilder: FormBuilder,
-    breakpointObserver: BreakpointObserver
+    breakpointObserver: BreakpointObserver,
+    private snackBar: MatSnackBar
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
@@ -60,14 +63,25 @@ export class EditProfileComponent implements OnInit {
   saveProfile() {}
 
   updateName(name: string) {
-    this.authService.updateUserName(name).then(() => {
-      alert('name update');
-    });
+    this.authService
+      .updateUserName(name)
+      .then(() => {
+        this.snackBar.open('username updated  sucessfuly', 'x', {
+          duration: 3000,
+        });
+      })
+      .catch((err) => {
+        this.snackBar.open(err.message, 'x', {
+          duration: 3000,
+        });
+      });
   }
   updateEmail(email: string) {
     console.log('update email', email);
     this.authService.updateUserEmail(email).then(() => {
-      alert('name update');
+      this.snackBar.open('email updated  sucessfuly', 'x', {
+        duration: 3000,
+      });
     });
   }
 }

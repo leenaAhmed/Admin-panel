@@ -20,6 +20,7 @@ const routes: Routes = [
   {
     path: 'Home',
     component: MainLayoutComponent,
+    canActivate: [AdminIsLoginGuard],
 
     children: [
       { path: 'admin', component: CompanyContactsComponent },
@@ -33,7 +34,6 @@ const routes: Routes = [
       },
       {
         path: 'user',
-        canActivate: [AdminIsLoginGuard],
         loadChildren: () =>
           import('src/app/components/admin/admin.module').then(
             (m) => m.AdminModule

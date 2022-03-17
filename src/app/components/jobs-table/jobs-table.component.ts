@@ -7,11 +7,11 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { JobsService } from 'src/app/Services/Jobs/jobs.service';
+import { JobsService } from 'src/app/services/Jobs/jobs.service';
 import { IuserCompany } from 'src/app/model/iuser-company';
 // import { CompanyService } from 'src/app/services/companyUser/company.service';
 import { Subscription } from 'rxjs';
-import { CompanyJobsService } from 'src/app/Services/Jobs/company-jobs.service';
+import { CompanyJobsService } from 'src/app/services/Jobs/company-jobs.service';
 
 @Component({
   selector: 'app-jobs-table',

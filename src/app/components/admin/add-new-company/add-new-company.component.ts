@@ -10,9 +10,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Router } from '@angular/router';
 import { mustMatch } from 'src/app/custom/password';
-import { AdminAuthService } from 'src/app/Services/auth/adminAuth.service';
+import { AdminAuthService } from 'src/app/services/auth/adminAuth.service';
 import { IuserCompany } from 'src/app/model/iuser-company';
-import { CompanyService } from 'src/app/Services/companyUser/company.service';
+import { CompanyService } from 'src/app/services/companyUser/company.service';
 interface CompanySize {
   size: string;
 }
@@ -26,14 +26,26 @@ interface CompanyIndustry {
   styleUrls: ['./add-new-company.component.scss'],
 })
 export class AddNewCompanyComponent implements OnInit {
+  @ViewChild('logo') logo!: ElementRef;
+  isLinear = false;
+  firstFormGroup!: FormGroup;
+  secondFormGroup!: FormGroup;
+
   @ViewChild('Image') Image!: ElementRef;
   companysize: CompanySize[] = [];
   formValue: FormGroup;
-  passwords: FormGroup;
   errorMessage: string = '';
+
   loading = false;
   submitted = false;
   companyIndustry: CompanyIndustry[] = [];
+  companyCountry = [
+    { value: 'Egypt' },
+    { value: 'Saudi Arabia ' },
+    { value: 'United Arab Emirates' },
+    { value: 'Sudan' },
+    { value: 'Other' },
+  ];
   selected: any[] = [];
   step: any = 1;
   hide = true;
@@ -45,6 +57,36 @@ export class AddNewCompanyComponent implements OnInit {
     private companyService: CompanyService,
     private snackBar: MatSnackBar
   ) {
+    this.firstFormGroup = this.formBuilder.group({
+      empFirstName: [
+        '',
+        [Validators.required, Validators.pattern('[A-Za-z]{3,}')],
+      ],
+      empLastName: [
+        '',
+        [Validators.required, Validators.pattern('[A-Za-z]{3,}')],
+      ],
+      password: [
+        null,
+        [Validators.required, Validators.pattern('[a-z0-9A-Z]{6,}')],
+      ],
+      mobileNo: ['', Validators.required],
+      empTitle: ['', Validators.required],
+      companyName: ['', Validators.required],
+      companySize: ['', Validators.required],
+      companyEmail: [
+        '',
+        [Validators.required, Validators.pattern(this.emailPattern)],
+      ],
+      companyCountry: ['', Validators.required],
+      companyIndustry: ['', Validators.required],
+    });
+
+    this.secondFormGroup = this.formBuilder.group({
+      companySize: ['', Validators.required],
+      aboutCompany: ['', Validators.required],
+      logo: ['', Validators.required],
+    });
     this.formValue = formBuilder.group(
       {
         fristName: [
@@ -75,8 +117,6 @@ export class AddNewCompanyComponent implements OnInit {
       },
       { validators: mustMatch }
     );
-
-    this.passwords = formBuilder.group({});
   }
 
   ngOnInit(): void {
@@ -102,12 +142,29 @@ export class AddNewCompanyComponent implements OnInit {
 
   onSubmit() {
     let userModel: IuserCompany = this.formValue.value as IuserCompany;
+    const companyModel: IuserCompany = {
+      companyName: this.formValue.value.companyName,
+      companyEmail: this.formValue.value.companyEmail,
+      companySize: this.formValue.value.companySize,
+      companyIndustry: this.formValue.value.companyIndustry,
+      aboutCompany: this.formValue.value.aboutCompany,
+      companyCountry: this.formValue.value.companyCountry,
+      id: '',
+      logo: '',
+      description: '',
+      fristName: '',
+      lastName: '',
+      empFirstName: '',
+      empLastName: '',
+      empTitle: '',
+      mobileNo: '',
+    };
     let logo = this.Image.nativeElement.files[0];
     this.authService
       .SignUp(this.companyEmail?.value, this.password?.value)
       .then((data) => {
         this.companyService
-          .creatUser(data.user?.uid, logo, userModel)
+          .creatUser(data.user?.uid, logo, companyModel)
           .then(() => {
             this.snackBar.open('Signed up sucessfuly', 'x', {
               duration: 3000,

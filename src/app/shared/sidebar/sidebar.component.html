@@ -1,4 +1,4 @@
-<div class="sidebar sidebar-background" id="navigation">
+<!-- <div class="sidebar sidebar-background" id="navigation">
   <div class="mainbackground">
     <div class="logo">
       <a class="simple-text ">
@@ -63,5 +63,70 @@
     </div>
   </div>
 
-  <!-- <div class="sidebar-background"></div> -->
-</div>
+ </div> -->
+
+<mat-sidenav-container class="sidebar-container" [hasBackdrop]="false">
+  <mat-sidenav #sidenav [(opened)]="opened" mode="side">
+    <div class="mainbackground">
+      <ul>
+        <li class="identity">
+          <a routerLink="/dashboard">
+            <span class="title">Wuzzuf Admin</span>
+          </a>
+        </li>
+        <!-- <div class="user">
+          <div class="photo">
+            <img src={{AdminsList.imageURL}}>
+          </div>
+          <div class="user-info">
+            <a>
+              <span>
+                <a [routerLink]="['user/profile']" class="text-white">
+                  {{AdminsList.name}} <b class="caret"></b>
+                </a>
+
+              </span></a>
+
+          </div>
+        </div> -->
+
+
+        <!-- <li>
+          <a [routerLink]="['user/editProfile']">
+            <mat-icon>edit</mat-icon>
+            <span class="title">Edit Profile</span>
+          </a>
+        </li> -->
+
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems">
+          <a [routerLink]="[menuItem.path]">
+            <mat-icon>{{ menuItem.icon }}</mat-icon>
+            <span class="title">{{ menuItem.title }}</span>
+          </a>
+        </li>
+        <li>
+          <a class [routerLink]="['/Home/addadmin']">
+            <mat-icon>person</mat-icon>
+
+            <span class="title">Add Admin</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['user/addcompany']">
+            <mat-icon>edit</mat-icon>
+
+            <span class="title">Add Company</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-content select="ng-container"></ng-content>
+    <!-- <mat-spinner *ngIf="loaderServ.isLoading" class="m-auto mt-5"></mat-spinner> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

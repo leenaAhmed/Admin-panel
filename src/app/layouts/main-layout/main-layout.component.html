@@ -1,4 +1,4 @@
-<div class="wrapper">
+<!-- <div class="wrapper">
     <div>
         <app-sidebar> </app-sidebar>
     </div>
@@ -7,5 +7,14 @@
         <div class="content">
             <router-outlet></router-outlet>
         </div>
-    </div>
-</div>
+    </div> -->
+<!-- </div> -->
+
+<app-sidebar #side>
+    <ng-container>
+        <app-navbar (toggleSide)="side.toggleNav()"></app-navbar>
+        <div class="container-fluid mt-5 ">
+            <router-outlet class="col-8"></router-outlet>
+        </div>
+    </ng-container>
+</app-sidebar>

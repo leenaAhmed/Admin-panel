@@ -2,7 +2,7 @@ import { IUser } from './../../Models/iuser';
 import { Component, OnInit } from '@angular/core';
 import { faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
-import { UsersService } from 'src/app/Services/users/users.service';
+import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
   selector: 'app-user-table',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IuserCompany } from 'src/app/model/iuser-company';
-import { CompanyService } from 'src/app/Services/companyUser/company.service';
+import { CompanyService } from 'src/app/services/companyUser/company.service';
 
 @Component({
   selector: 'app-single-company',
