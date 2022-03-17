@@ -34,11 +34,6 @@ export class ProfileComponent implements OnInit {
       });
     });
 
-    // this.admin.getloggedin().subscribe((data: any) => {
-    //   console.log(data);
-    //   this.loggedAdmin = data;
-    // });
-
     console.log(this.loggedAdmin);
   }
 }

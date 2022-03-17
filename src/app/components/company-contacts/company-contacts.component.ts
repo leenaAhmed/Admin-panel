@@ -59,9 +59,4 @@ export class CompanyContactsComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  // search(event: any) {
-  //   this.searchText = (event.target as HTMLInputElement).value;
-  //   console.log(this.searchText);
-  //   this.companyService.search.next(this.searchText);
-  // }
 }

@@ -1,70 +1,3 @@
-<!-- <div class="sidebar sidebar-background" id="navigation">
-  <div class="mainbackground">
-    <div class="logo">
-      <a class="simple-text ">
-
-        Wuzzuf
-      </a>
-    </div>
-    <div class="sidebar-wrapper">
-      <div class="user">
-        <div class="photo"><img src={{AdminsList.imageURL}}></div>
-        <div class="user-info">
-          <a data-toggle="collapse" class="collapsed" (click)="sidebarToggle()" aria-expanded="false">
-            <span> {{AdminsList.name}} <b class="caret">
-                <mat-icon>keyboard_arrow_down</mat-icon>
-              </b></span></a>
-          <div id="collapseExample" class="collapse" [class.show]="isOpen">
-            <ul class="nav">
-              <li class="nav-item">
-                <a class="nav-link" [routerLink]="['user/profile']">
-                  <span class="sidebar-mini">MP</span><span class="sidebar-normal">My Profile</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" [routerLink]="['user/editProfile']">
-                  <span class="sidebar-mini">EP</span><span class="sidebar-normal">Edit Profile</span></a>
-              </li>
-
-
-              <li class="nav-item">
-                <a class="nav-link"><span class="sidebar-mini">F</span><span class="sidebar-normal"> Forms<a
-                      data-toggle="collapse" class="collapsed" aria-expanded="false" (click)="FormToggle()">
-                      <span>
-                        <b>
-                          <mat-icon>keyboard_arrow_down</mat-icon>
-                        </b></span></a>
-                    <div id="collapseExample" class="collapse" [class.show]="FormIsOpen">
-                      <ul class="nav">
-                        <li class="nav-item">
-                          <a class="nav-link" [routerLink]="['/Home/addadmin']"><span
-                              class="sidebar-mini">AD</span><span class="sidebar-normal">Add Admin</span></a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" [routerLink]="['user/addcompany']">
-                            <span class="sidebar-mini">AC</span><span class="sidebar-normal">Add
-                              Company</span></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </span></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <ul class="nav">
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="nav-item">
-          <a class="nav-link" [routerLink]="[menuItem.path]">
-            <i class="material-icons">{{ menuItem.icon }}</i>
-            <p>{{ menuItem.title }}</p>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-
- </div> -->
-
 <mat-sidenav-container class="sidebar-container" [hasBackdrop]="false">
   <mat-sidenav #sidenav [(opened)]="opened" mode="side">
     <div class="mainbackground">
@@ -74,29 +7,7 @@
             <span class="title">Wuzzuf Admin</span>
           </a>
         </li>
-        <!-- <div class="user">
-          <div class="photo">
-            <img src={{AdminsList.imageURL}}>
-          </div>
-          <div class="user-info">
-            <a>
-              <span>
-                <a [routerLink]="['user/profile']" class="text-white">
-                  {{AdminsList.name}} <b class="caret"></b>
-                </a>
 
-              </span></a>
-
-          </div>
-        </div> -->
-
-
-        <!-- <li>
-          <a [routerLink]="['user/editProfile']">
-            <mat-icon>edit</mat-icon>
-            <span class="title">Edit Profile</span>
-          </a>
-        </li> -->
 
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems">
           <a [routerLink]="[menuItem.path]">
@@ -127,6 +38,5 @@
 
   <mat-sidenav-content>
     <ng-content select="ng-container"></ng-content>
-    <!-- <mat-spinner *ngIf="loaderServ.isLoading" class="m-auto mt-5"></mat-spinner> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
