@@ -139,7 +139,7 @@
             id="ConfirmPasswordInput"
             name="confirmPass"
             placeholder="Enter confirmed password"
-            [class.is-invalid]="ConfirmPassword?.invalid"
+            [class.is-invalid]="ConfirmPassword?.invalid ||AddAdminForm?.errors?.['UnmatchedPassword']"
             [class.is-valid]="ConfirmPassword?.valid"
             formControlName="confirmPassword"
           />

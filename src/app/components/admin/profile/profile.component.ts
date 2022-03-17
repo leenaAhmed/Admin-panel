@@ -10,7 +10,7 @@ import { AdminAuthService } from '../../../services/auth/adminAuth.service';
 })
 export class ProfileComponent implements OnInit {
   // message: faEnvelope;
-  loggedAdmin: Iadmin = {} as Iadmin;
+  loggedAdmin: any;
   adminList: Iadmin[] = [];
   constructor(
     private admin: AdminService,

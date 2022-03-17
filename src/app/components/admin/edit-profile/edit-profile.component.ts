@@ -19,7 +19,7 @@ import { Iadmin } from 'src/app/model/iadmin';
   styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent implements OnInit {
-  user: Iadmin = {} as Iadmin;
+  user: any;
 
   isEditable = false;
   step: any = 1;

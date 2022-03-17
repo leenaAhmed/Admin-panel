@@ -16,7 +16,7 @@ export class AdminAuthService {
   private newuser = firebase.auth().currentUser;
 
   private user: Observable<any> | null = null;
-
+  private adminId: any = localStorage.getItem('adminUid');
   constructor(
     private FireAuth: AngularFireAuth,
     private firestore: AngularFirestore,
@@ -45,7 +45,7 @@ export class AdminAuthService {
     });
   }
   getUser() {
-    return this.user;
+    return this.firestore.doc<Iadmin>(`admin/${this.adminId}`).valueChanges();
   }
 
   Login(Email: string, Password: string) {

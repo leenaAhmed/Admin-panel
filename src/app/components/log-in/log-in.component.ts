@@ -24,7 +24,7 @@ export class LogInComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   get Email() {
     return this.LoginForm.get('email');
   }
@@ -36,6 +36,12 @@ export class LogInComponent implements OnInit {
   SubmitForm() {
     this.AdminAuth.Login(this.Email?.value, this.Password?.value)
       .then(() => {
+        this.AdminAuth.AdminIsLogin.subscribe((user) => {
+          if (user) {
+            localStorage.setItem("adminUid", user?.uid);
+          }
+        })
+
         this.Route.navigate(['/Home/dashboard']);
         this.ErrorShow = false;
       })

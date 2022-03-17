@@ -34,7 +34,7 @@ export class SidebarComponent implements OnInit {
   menuItems: any[] = [];
   isOpen: boolean = false;
 
-  AdminsList: Iadmin = {} as Iadmin;
+  AdminsList: any;
   constructor(private authService: AdminAuthService) {}
   FormIsOpen: boolean = false;
   opened: boolean = true;

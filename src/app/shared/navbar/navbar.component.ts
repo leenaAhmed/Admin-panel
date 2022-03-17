@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit {
   isCollapsed: boolean = false;
   searchText!: string;
   faSignOut = faSignOut;
-  AdminsList: Iadmin = {} as Iadmin;
+  AdminsList: any;
 
   @ViewChild('app-navbar', { static: false }) button: any;
   @Output() toggleSide: EventEmitter<string> = new EventEmitter();
@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.getUser()?.subscribe((data) => {
+    this.AdminsList = this.authService.getUser()?.subscribe((data) => {
       this.AdminsList = data;
     });
   }
