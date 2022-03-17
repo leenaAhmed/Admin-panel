@@ -39,7 +39,7 @@ export class AddNewCompanyComponent implements OnInit {
   loading = false;
   submitted = false;
   companyIndustry: CompanyIndustry[] = [];
-  companyCountry = [
+  companyCountes = [
     { value: 'Egypt' },
     { value: 'Saudi Arabia ' },
     { value: 'United Arab Emirates' },
@@ -57,36 +57,6 @@ export class AddNewCompanyComponent implements OnInit {
     private companyService: CompanyService,
     private snackBar: MatSnackBar
   ) {
-    this.firstFormGroup = this.formBuilder.group({
-      empFirstName: [
-        '',
-        [Validators.required, Validators.pattern('[A-Za-z]{3,}')],
-      ],
-      empLastName: [
-        '',
-        [Validators.required, Validators.pattern('[A-Za-z]{3,}')],
-      ],
-      password: [
-        null,
-        [Validators.required, Validators.pattern('[a-z0-9A-Z]{6,}')],
-      ],
-      mobileNo: ['', Validators.required],
-      empTitle: ['', Validators.required],
-      companyName: ['', Validators.required],
-      companySize: ['', Validators.required],
-      companyEmail: [
-        '',
-        [Validators.required, Validators.pattern(this.emailPattern)],
-      ],
-      companyCountry: ['', Validators.required],
-      companyIndustry: ['', Validators.required],
-    });
-
-    this.secondFormGroup = this.formBuilder.group({
-      companySize: ['', Validators.required],
-      aboutCompany: ['', Validators.required],
-      logo: ['', Validators.required],
-    });
     this.formValue = formBuilder.group(
       {
         fristName: [
@@ -103,10 +73,12 @@ export class AddNewCompanyComponent implements OnInit {
           [Validators.required, Validators.pattern(this.emailPattern)],
         ],
         companyIndustry: ['', Validators.required],
-        jobTitle: [null, Validators.required],
+        empTitle: [null, Validators.required],
         companyName: [null, Validators.required],
         companySize: [null, Validators.required],
         aboutCompany: [null, Validators.required],
+        companyCountry: [null, Validators.required],
+        logo: ['', Validators.required],
         password: [
           null,
           [Validators.required, Validators.pattern('[a-z0-9A-Z]{6,}')],
@@ -150,14 +122,11 @@ export class AddNewCompanyComponent implements OnInit {
       aboutCompany: this.formValue.value.aboutCompany,
       companyCountry: this.formValue.value.companyCountry,
       id: '',
-      logo: '',
-      description: '',
-      fristName: '',
-      lastName: '',
-      empFirstName: '',
-      empLastName: '',
-      empTitle: '',
+      fristName: this.formValue.value.fristName,
+      lastName: this.formValue.value.lastName,
+
       mobileNo: '',
+      empTitle: '',
     };
     let logo = this.Image.nativeElement.files[0];
     this.authService
@@ -169,6 +138,7 @@ export class AddNewCompanyComponent implements OnInit {
             this.snackBar.open('Signed up sucessfuly', 'x', {
               duration: 3000,
             });
+            this.router.navigate(['/Home/admin']);
           })
           .catch((error) => {
             this.snackBar.open(error.message, 'x', {
@@ -186,6 +156,9 @@ export class AddNewCompanyComponent implements OnInit {
   get fristName() {
     return this.formValue.get('fristName');
   }
+  get picture() {
+    return this.formValue.get('logo');
+  }
   get lastName() {
     return this.formValue.get('lastName');
   }
@@ -196,13 +169,15 @@ export class AddNewCompanyComponent implements OnInit {
   get industry() {
     return this.formValue.get('companyIndustry');
   }
-  get jobTitle() {
-    return this.formValue.get('jobTitle');
+  get empTitle() {
+    return this.formValue.get('empTitle');
   }
   get companyName() {
     return this.formValue.get('companyName');
   }
-
+  get companyCountry() {
+    return this.formValue.get('companyCountry');
+  }
   get aboutcompany() {
     return this.formValue.get('aboutCompany');
   }
