@@ -1,5 +1,5 @@
 export interface IuserCompany {
-  id: string;
+  id?: string;
   companyName: string;
   companyIndustry: string;
   aboutCompany: string;

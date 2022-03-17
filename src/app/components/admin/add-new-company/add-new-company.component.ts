@@ -121,7 +121,6 @@ export class AddNewCompanyComponent implements OnInit {
       companyIndustry: this.formValue.value.companyIndustry,
       aboutCompany: this.formValue.value.aboutCompany,
       companyCountry: this.formValue.value.companyCountry,
-      id: '',
       fristName: this.formValue.value.fristName,
       lastName: this.formValue.value.lastName,
 
