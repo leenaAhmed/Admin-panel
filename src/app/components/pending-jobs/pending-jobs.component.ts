@@ -86,6 +86,15 @@ export class PendingJobsComponent implements OnInit {
   //   this.SubScriptionArray.push(JobObserver);
   // }
 
+  // openDialog(id: string) {
+  //   const dialogRef = this.dialog.open(DailogComponent, {
+  //     data: { id: id },
+  //   });
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
+
   UpdateStatus(JobId: string) {
     this.JobsServ.UpdateStatus(JobId, this.NewStatus, this.CompanyId)
       .then(() => {
