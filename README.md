@@ -1,4 +1,5 @@
-# AdminPanal
+# AdminPanal For Wuzzuf 
+  See company accounts ,and  users account,  jobs ,can add new admin or company 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
 
